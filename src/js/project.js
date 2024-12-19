@@ -2,9 +2,18 @@ import Priority from './priority'
 import Todo from './todo'
 
 class Project {
+    #id
     #name;
     #priority;
     #todoList = [];
+
+    static #nextId = 0;
+
+    static #checkoutId() {
+	const id = this.#nextId;
+	this.#nextId += 1;
+	return id;
+    }
 
     loadTodoList(...todos) {
 	for (let todo of todos) {
@@ -15,6 +24,7 @@ class Project {
     }
     
     constructor(name, priority = Priority.MEDIUM, ...todos) {
+	this.#id = Project.#checkoutId();
 	this.#name = name;
 	this.#priority = priority;
 	this.#todoList = [];
