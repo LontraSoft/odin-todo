@@ -33,12 +33,21 @@ class TodoChecklist {
 }
 
 class Todo {
+    #id;
     #name;
     #description;
     #dueDate;
     #priority;
     #notes;
     #checklist;
+
+    static #nextId = 0;
+
+    static #checkoutId() {
+	const id = this.#nextId;
+	this.#nextId += 1;
+	return id;
+    }
     
     constructor(name,
 		description = "",
@@ -46,6 +55,7 @@ class Todo {
 		priority = Priority.MEDIUM,
 		notes = "")
     {
+	this.#id = Todo.#checkoutId();
 	this.#name = name;
 	this.#description = description;
 	this.#dueDate = dueDate;
@@ -53,6 +63,8 @@ class Todo {
 	this.#notes = notes;
 	this.#checklist = new TodoChecklist();
     }
+
+    get id() { return this.#id; }
 
     get name() { return this.#name; }
     set name(newName) { this.#name = newName; }
