@@ -20,6 +20,16 @@ class htmlGenerator {
 
 	return todoName;
     }
+
+    generateTodoDescription(description) {
+	const todoDescription = this.doc.createElement('input');
+
+	todoDescription.className = 'todo-description';
+	todoDescription.type = 'text';
+	todoDescription.textContent = description;
+
+	return todoDescription;
+    }
     }
 
     generateProjectHTML (project) {
