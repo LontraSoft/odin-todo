@@ -48,6 +48,17 @@ class htmlGenerator {
 	return todoChecklist;
     }
 
+    generateTodoList(todos) {
+	const todoList = this.doc.createElement('ul');
+
+	todos.forEach((todo) => {
+	    console.log(todo);
+	    todoList.appendChild(this.generateTodo(todo));
+	})
+
+	return todoList;
+    }
+
     generatePriority(priority) {
 	const priorityOption = this.doc.createElement('option');
 
