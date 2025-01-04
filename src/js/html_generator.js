@@ -35,6 +35,16 @@ class htmlGenerator {
 	return checklistItem;
     }
 
+    generatePriority(priority) {
+	const priorityOption = this.doc.createElement('option');
+
+	priorityOption.className = 'priority-option';
+	priorityOption.textContent = priority.name;
+	priorityOption.dataset.priorityLevel = priority.priorityLevel;
+
+	return priorityOption;
+    }
+
     generateTodoName(name) {
 	const todoName = this.doc.createElement('h3');
 
