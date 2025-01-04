@@ -112,6 +112,16 @@ class htmlGenerator {
 
 	return todoDueDate;
     }
+
+    generateTodoNotes(notes) {
+	const todoNotes = this.doc.createElement('textarea');	
+
+	todoNotes.className = 'todo-notes';
+	todoNotes.textContent = notes;
+
+	return todoNotes;
+    }
+
     }
 
     generateProjectHTML (project) {
