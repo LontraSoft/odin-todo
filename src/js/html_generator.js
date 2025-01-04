@@ -12,9 +12,15 @@ class htmlGenerator {
 	this.doc = doc;
     }
 
-    generateTodoHTML (todo) {
-	// TODO: implement
-	console.log('Attempted to generate a Todo');
+    generateTodoName(name) {
+	const todoName = this.doc.createElement('h3');
+
+	todoName.className = 'todo-name';
+	todoName.type = 'text';
+	todoName.textContent = name;
+
+	return todoName;
+    }
     }
 
     generateProjectHTML (project) {
