@@ -122,6 +122,32 @@ class htmlGenerator {
 	return todoNotes;
     }
 
+    generateTodo (todo) {
+	const todoContainer = this.doc.createElement('div');
+	const todoName = this.generateTodoName(todo.name);
+	const todoDescription = this.generateTodoDescription(todo.description);
+	const todoDueDate = this.generateTodoDueDate(todo.dueDate);
+	const todoPriority = this.generatePriorityDropdown();
+	const todoNotes = this.generateTodoNotes();
+	const todoRemoveButton = this.doc.createElement('button');
+	const todoChecklist = this.generateTodoChecklist(todo.checklist);
+
+	todoContainer.className = 'todo-container';
+
+	todoPriority.value = todo.priority.priorityLevel;
+	
+	todoRemoveButton.className = 'todo-delete-button';
+	todoRemoveButton.textContent = 'Remove';
+
+	todoContainer.appendChild(todoName);
+	todoContainer.appendChild(todoDescription);
+	todoContainer.appendChild(todoDueDate);
+	todoContainer.appendChild(todoPriority);
+	todoContainer.appendChild(todoNotes);
+	todoContainer.appendChild(todoRemoveButton);
+	todoContainer.appendChild(todoChecklist);
+
+	return todoContainer;
     }
 
     generateProjectHTML (project) {
