@@ -1,4 +1,3 @@
-export default htmlGenerator;
 import Todo from './todo';
 import Project from './project';
 import Priority from './priority';
@@ -28,3 +27,5 @@ class htmlGenerator {
 	console.log('Attempted to generate a project');
     }
 }
+
+export default htmlGenerator;
