@@ -2,7 +2,7 @@ import Priority from './priority'
 import Todo from './todo'
 
 class Project {
-    #id
+    #id;
     #name;
     #priority;
     #todoList;
