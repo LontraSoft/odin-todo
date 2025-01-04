@@ -14,6 +14,27 @@ class htmlGenerator {
     #dateToDateTimeLocalValue(date) {
 	return date.toISOString().slice(0, 16);
     }
+
+    generateTodoChecklistItem (todoChecklistItem) {
+	const checklistItem = this.doc.createElement('li');
+	const checklistItemDescription = this.doc.createElement('input');
+	const checklistItemCheckbox = this.doc.createElement('input');
+
+	checklistItemDescription.className = 'checklist-item-description';
+	checklistItemDescription.type = 'text';
+	
+	checklistItemCheckbox.className = 'checklist-item-checkbox';
+	checklistItemCheckbox.type = 'checkbox';
+	checklistItemCheckbox.checked = todoChecklistItem.isCompleted;
+
+	checklistItemDescription.textContent = todoChecklistItem.description;
+
+	checklistItem.appendChild(checklistItemDescription);
+	checklistItem.appendChild(checklistItemCheckbox);
+
+	return checklistItem;
+    }
+
     generateTodoName(name) {
 	const todoName = this.doc.createElement('h3');
 
