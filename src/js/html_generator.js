@@ -162,8 +162,26 @@ class htmlGenerator {
     }
 
     generateProjectHTML (project) {
-	// TODO: implement
-	console.log('Attempted to generate a project');
+	const projectContainer = this.doc.createElement('div');
+	const projectName = this.doc.createElement('input');
+	const projectPriority = this.generatePriorityDropdown();
+	const projectRemoveButton = this.doc.createElement('button');
+	const todoList = this.generateTodoList(project.todoList);
+
+	projectName.className = 'project-name';
+	projectName.textContent = project.name;
+
+	projectPriority.className = 'project-priority-dropdown';
+
+	projectRemoveButton.className = 'project-remove-button';
+	projectRemoveButton.type = 'button';
+
+	projectContainer.appendChild(projectName);
+	projectContainer.appendChild(projectPriority);
+	projectContainer.appendChild(projectRemoveButton);
+	projectContainer.appendChild(todoList);
+
+	return projectContainer;
     }
 }
 
