@@ -11,6 +11,9 @@ class htmlGenerator {
 	this.doc = doc;
     }
 
+    #dateToDateTimeLocalValue(date) {
+	return date.toISOString().slice(0, 16);
+    }
     generateTodoName(name) {
 	const todoName = this.doc.createElement('h3');
 
@@ -29,6 +32,16 @@ class htmlGenerator {
 	todoDescription.textContent = description;
 
 	return todoDescription;
+    }
+
+    generateTodoDueDate(date) {
+	const todoDueDate = this.doc.createElement('input');
+	
+	todoDueDate.className = 'todo-due-date';
+	todoDueDate.type = 'datetime-local';
+	todoDueDate.value = this.#dateToDateTimeLocalValue(date);
+
+	return todoDueDate;
     }
     }
 
