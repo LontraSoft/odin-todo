@@ -45,6 +45,31 @@ class htmlGenerator {
 	return priorityOption;
     }
 
+    generatePriorityDropdown() {
+	const prioritySelection = this.doc.createElement('select');
+	prioritySelection.className = 'priority-dropdown';
+
+	const lowestPriority = this.generatePriority(Priority.LOWEST);
+	const lowPriority = this.generatePriority(Priority.LOW);
+	const mediumPriority = this.generatePriority(Priority.MEDIUM);
+	const highPriority = this.generatePriority(Priority.HIGH);
+	const highestPriority = this.generatePriority(Priority.HIGHEST);
+
+	lowestPriority.value = Priority.LOWEST.priorityLevel;
+	lowPriority.value = Priority.LOW.priorityLevel;
+	mediumPriority.value = Priority.MEDIUM.priorityLevel;
+	highPriority.value = Priority.HIGH.priorityLevel;
+	highestPriority.value = Priority.HIGHEST.priorityLevel;
+	
+	prioritySelection.appendChild(lowestPriority);
+	prioritySelection.appendChild(lowPriority);
+	prioritySelection.appendChild(mediumPriority);
+	prioritySelection.appendChild(highPriority);
+	prioritySelection.appendChild(highestPriority);
+
+	return prioritySelection;
+    }
+
     generateTodoName(name) {
 	const todoName = this.doc.createElement('h3');
 
