@@ -35,6 +35,19 @@ class htmlGenerator {
 	return checklistItem;
     }
 
+    generateTodoChecklist(checklist) {
+	if (checklist.length === 0) { return undefined;	}
+	
+	const todoChecklist = this.doc.createElement('ul');
+	todoChecklist.className = 'todo-checklist';
+
+	checklist.forEach((todoChecklistItem) => {
+	    todoChecklist.appendChild(this.generateTodoChecklistItem(todoChecklistItem));
+	});
+
+	return todoChecklist;
+    }
+
     generatePriority(priority) {
 	const priorityOption = this.doc.createElement('option');
 
