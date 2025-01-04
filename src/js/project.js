@@ -39,9 +39,8 @@ class Project {
 
     get todoList() { return this.#todoList; }
 
-    addTodo(name, description, dueDate, priority, notes) {
-	const addedTodo = new Todo(name, description, dueDate, priority, notes);
-	this.#todoList.push(addedTodo);
+    addTodo(todo) {
+	this.#todoList.push(todo);
     }
 
 }
