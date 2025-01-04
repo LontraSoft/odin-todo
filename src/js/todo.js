@@ -7,31 +7,6 @@ class TodoChecklistItem {
     }
 }
 
-class TodoChecklist {
-    #checklist;
-    
-    constructor() {
-	this.#checklist = [];
-    }
-    
-    addChecklistItem(description, isCompleted = false) {
-	this.#checklist.push(new TodoChecklistItem(description, isCompleted));
-	return this;
-    }
-
-    removeChecklistItem(indexOfRemovedItem) {
-	this.#checklist.splice(indexOfRemovedItem, 1);
-    }
-
-    resetChecklist() {
-	this.#checklist.splice(0, this.#checklist.length);
-    }
-
-    isEmpty() {
-	return this.#checklist.length === 0;
-    }
-}
-
 class Todo {
     #id;
     #name;
@@ -61,7 +36,7 @@ class Todo {
 	this.#dueDate = dueDate;
 	this.#priority = priority;
 	this.#notes = notes;
-	this.#checklist = new TodoChecklist();
+	this.#checklist = [];
     }
 
     get id() { return this.#id; }
@@ -96,6 +71,19 @@ class Todo {
 
     addChecklistItem(description, isCompleted = false) {
 	this.#checklist.addChecklistItem(description, isCompleted);
+    }
+
+        addChecklistItem(description, isCompleted = false) {
+	this.#checklist.push(new TodoChecklistItem(description, isCompleted));
+	return this;
+    }
+
+    removeChecklistItem(indexOfRemovedItem) {
+	this.#checklist.splice(indexOfRemovedItem, 1);
+    }
+
+    resetChecklist() {
+	this.#checklist.splice(0, this.#checklist.length);
     }
 }
 
