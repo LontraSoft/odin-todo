@@ -27,7 +27,7 @@ class htmlGenerator {
 	checklistItemCheckbox.type = 'checkbox';
 	checklistItemCheckbox.checked = todoChecklistItem.isCompleted;
 
-	checklistItemDescription.textContent = todoChecklistItem.description;
+	checklistItemDescription.value = todoChecklistItem.description;
 
 	checklistItem.appendChild(checklistItemDescription);
 	checklistItem.appendChild(checklistItemCheckbox);
