@@ -5,7 +5,7 @@ class Project {
     #id
     #name;
     #priority;
-    #todoList = [];
+    #todoList;
 
     static #nextId = 0;
 
