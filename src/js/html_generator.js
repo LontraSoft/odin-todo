@@ -135,6 +135,9 @@ class htmlGenerator {
 
     generateTodo (todo) {
 	const todoContainer = this.doc.createElement('div');
+	const todoSidebar = this.doc.createElement('div');
+	const todoCompleteButton = this.doc.createElement('button');
+	const todoContentContainer = this.doc.createElement('div');
 	const todoName = this.generateTodoName(todo.name);
 	const todoDueDate = this.generateTodoDueDate(todo.dueDate);
 	const todoPriority = this.generatePriorityDropdown();
@@ -144,19 +147,28 @@ class htmlGenerator {
 	const todoRemoveButton = this.doc.createElement('button');
 
 	todoContainer.className = 'todo-container';
+	todoContentContainer.className = 'todo-content-container';
+
+	todoSidebar.className = 'todo-sidebar';
+	todoCompleteButton.className = 'todo-complete-button';
+	todoCompleteButton.type = 'button';
+	todoSidebar.appendChild(todoCompleteButton);
 
 	todoPriority.value = todo.priority.priorityLevel;
 	
 	todoRemoveButton.className = 'todo-delete-button';
 	todoRemoveButton.textContent = 'Remove';
 
-	todoContainer.appendChild(todoName);
-	todoContainer.appendChild(todoDueDate);
-	todoContainer.appendChild(todoPriority);
-	todoContainer.appendChild(todoDescription);
-	todoContainer.appendChild(todoNotes);
-	todoContainer.appendChild(todoChecklist);
-	todoContainer.appendChild(todoRemoveButton);
+	todoContentContainer.appendChild(todoName);
+	todoContentContainer.appendChild(todoDueDate);
+	todoContentContainer.appendChild(todoPriority);
+	todoContentContainer.appendChild(todoDescription);
+	todoContentContainer.appendChild(todoNotes);
+	todoContentContainer.appendChild(todoChecklist);
+	todoContentContainer.appendChild(todoRemoveButton);
+
+	todoContainer.appendChild(todoSidebar);
+	todoContainer.appendChild(todoContentContainer);
 
 	return todoContainer;
     }
