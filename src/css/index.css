@@ -1,0 +1,148 @@
+/*------------------------------------------------------------------------*/
+/* A Modern CSS Reset - Josh Comeau                  */
+/* https://www.joshwcomeau.com/css/custom-css-reset/ */
+
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+body {
+  /* 3. Add accessible line-height */
+  line-height: 1.5;
+  /* 4. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 5. Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 6. Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 7. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* 8. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+/*
+  9. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+
+/*------------------------------------------------------------------------*/
+
+
+:root {
+    --background-color: hsl(282, 32%, 6%);
+    --project-color: hsl(282, 32%, 80%);
+    --todo-color: hsl(282, 32%, 56%);
+    --todo-input-color: hsl(282, 10%, 43%);
+    --textbox-color: hsl(159, 17%, 92%);
+    --add-button-color: hsl(99, 93%, 65%);
+    --remove-button-color: hsl(350, 77%, 40%);
+
+    --dark-text-color: var(--background-color);
+    --light-text-color: var(--textbox-color);
+
+    --header-size: 30px;
+}
+
+ul, ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+
+    background-color: var(--project-color);
+    border-bottom: 2px solid #0002;
+    color: var(--dark-text-color);
+
+    height: var(--header-size);
+}
+
+.logo-text {
+    font-weight: bold;
+}
+
+.projects-container {
+    display: grid;
+    
+    background-color: var(--background-color);
+
+    height: calc(100vh - var(--header-size));
+
+    overflow: auto;
+
+    padding: 20px;
+}
+
+.project-container {
+    width: 20rem;
+    height: 24rem;
+
+    color: var(--dark-text-color);
+    font-size: 0.8rem;
+    
+    border: 2px solid #0002;
+    
+    background-color: var(--project-color);
+}
+
+.todo-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 1rem;
+}
+
+.todo-container {
+    background-color: var(--todo-color);
+    padding: 6px;
+}
+
+.todo-name {
+    display: inline;
+    margin-right: 0.5rem;
+}
+
+.todo-due-date {
+    background-color: var(--todo-input-color);
+    border: 2px outset #0002;
+    border-radius: 5px;
+    margin-right: 0.5rem;
+}
+
+.priority-dropdown {
+    border: 2px outset #0002;
+    border-radius: 5px;
+}
+
+.project-priority-dropdown {
+    border: 2px outset #0002;
+    border-radius: 5px;
+}
