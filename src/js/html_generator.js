@@ -168,6 +168,8 @@ class htmlGenerator {
 	const projectRemoveButton = this.doc.createElement('button');
 	const todoList = this.generateTodoList(project.todoList);
 
+	projectContainer.className = 'project-container';
+
 	projectName.className = 'project-name';
 	projectName.textContent = project.name;
 
