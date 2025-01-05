@@ -95,11 +95,11 @@ class htmlGenerator {
     }
 
     generateTodoName(name) {
-	const todoName = this.doc.createElement('h3');
+	const todoName = this.doc.createElement('input');
 
 	todoName.className = 'todo-name';
 	todoName.type = 'text';
-	todoName.textContent = name;
+	todoName.value = name;
 
 	return todoName;
     }
@@ -133,6 +133,7 @@ class htmlGenerator {
 	return todoNotes;
     }
 
+    // TODO: Add dragdrop icon
     generateTodo (todo) {
 	const todoContainer = this.doc.createElement('div');
 	const todoSidebar = this.doc.createElement('div');
