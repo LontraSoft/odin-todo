@@ -136,9 +136,9 @@ class htmlGenerator {
     generateTodo (todo) {
 	const todoContainer = this.doc.createElement('div');
 	const todoName = this.generateTodoName(todo.name);
-	const todoDescription = this.generateTodoDescription(todo.description);
 	const todoDueDate = this.generateTodoDueDate(todo.dueDate);
 	const todoPriority = this.generatePriorityDropdown();
+	const todoDescription = this.generateTodoDescription(todo.description);
 	const todoNotes = this.generateTodoNotes();
 	const todoRemoveButton = this.doc.createElement('button');
 	const todoChecklist = this.generateTodoChecklist(todo.checklist);
@@ -151,9 +151,9 @@ class htmlGenerator {
 	todoRemoveButton.textContent = 'Remove';
 
 	todoContainer.appendChild(todoName);
-	todoContainer.appendChild(todoDescription);
 	todoContainer.appendChild(todoDueDate);
 	todoContainer.appendChild(todoPriority);
+	todoContainer.appendChild(todoDescription);
 	todoContainer.appendChild(todoNotes);
 	todoContainer.appendChild(todoRemoveButton);
 	todoContainer.appendChild(todoChecklist);
