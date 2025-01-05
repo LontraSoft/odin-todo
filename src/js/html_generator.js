@@ -12,7 +12,7 @@ class htmlGenerator {
     }
 
     #dateToDateTimeLocalValue(date) {
-	return date.toISOString().slice(0, 16);
+	return date.toISOString().slice(0, 10);
     }
 
     generateTodoChecklistItem (todoChecklistItem) {
@@ -118,7 +118,7 @@ class htmlGenerator {
 	const todoDueDate = this.doc.createElement('input');
 	
 	todoDueDate.className = 'todo-due-date';
-	todoDueDate.type = 'datetime-local';
+	todoDueDate.type = 'date';
 	todoDueDate.value = this.#dateToDateTimeLocalValue(date);
 
 	return todoDueDate;
