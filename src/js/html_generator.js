@@ -36,8 +36,6 @@ class htmlGenerator {
     }
 
     generateTodoChecklist(checklist) {
-	if (checklist.length === 0) { return undefined;	}
-	
 	const todoChecklist = this.doc.createElement('ul');
 	todoChecklist.className = 'todo-checklist';
 
