@@ -140,8 +140,8 @@ class htmlGenerator {
 	const todoPriority = this.generatePriorityDropdown();
 	const todoDescription = this.generateTodoDescription(todo.description);
 	const todoNotes = this.generateTodoNotes();
-	const todoRemoveButton = this.doc.createElement('button');
 	const todoChecklist = this.generateTodoChecklist(todo.checklist);
+	const todoRemoveButton = this.doc.createElement('button');
 
 	todoContainer.className = 'todo-container';
 
@@ -155,8 +155,8 @@ class htmlGenerator {
 	todoContainer.appendChild(todoPriority);
 	todoContainer.appendChild(todoDescription);
 	todoContainer.appendChild(todoNotes);
-	todoContainer.appendChild(todoRemoveButton);
 	todoContainer.appendChild(todoChecklist);
+	todoContainer.appendChild(todoRemoveButton);
 
 	return todoContainer;
     }
