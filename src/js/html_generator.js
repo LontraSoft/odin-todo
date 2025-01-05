@@ -155,8 +155,8 @@ class htmlGenerator {
 	todoSidebar.appendChild(todoCompleteButton);
 
 	todoPriority.value = todo.priority.priorityLevel;
-	
-	todoRemoveButton.className = 'todo-delete-button';
+
+	todoRemoveButton.className = 'todo-remove-button';
 	todoRemoveButton.textContent = 'Remove';
 
 	todoContentContainer.appendChild(todoName);
