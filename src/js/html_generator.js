@@ -49,6 +49,8 @@ class htmlGenerator {
     generateTodoList(todos) {
 	const todoList = this.doc.createElement('ul');
 
+	todoList.className = 'todo-list';
+
 	todos.forEach((todo) => {
 	    console.log(todo);
 	    todoList.appendChild(this.generateTodo(todo));
