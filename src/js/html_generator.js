@@ -184,7 +184,8 @@ class htmlGenerator {
 	projectContainer.className = 'project-container';
 
 	projectName.className = 'project-name';
-	projectName.textContent = project.name;
+	projectName.type = 'text';
+	projectName.value = project.name;
 
 	projectPriority.className = 'project-priority-dropdown';
 
