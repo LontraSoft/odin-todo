@@ -21,6 +21,7 @@ class htmlGenerator {
 	const checklistItemDescription = this.doc.createElement('input');
 	const checklistItemCheckbox = this.doc.createElement('input');
 
+	checklistItem.className = html_classnames.TODO_CHECKLIST_ITEM;
 	
 	checklistItemDescription.className = html_classnames.TODO_CHECKLIST_ITEM_DESCRIPTION;
 	checklistItemDescription.type = 'text';
