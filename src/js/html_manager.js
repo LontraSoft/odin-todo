@@ -56,6 +56,13 @@ class htmlManager {
 	return this;
     }
 
+    appendProject(project) {
+	let projectHTML = this.#htmlGenerator.generateProjectHTML(project);
+
+	this.#projectsContainer.appendChild(projectHTML);
+	return this;   
+    }
+
 }
 
 export default htmlManager;
