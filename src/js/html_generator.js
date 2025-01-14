@@ -23,6 +23,7 @@ class htmlGenerator {
 	const checklistItem = this.doc.createElement('li');
 	const checklistItemDescription = this.doc.createElement('input');
 	const checklistItemCheckbox = this.doc.createElement('input');
+	const checklistItemRemoveButton = this.doc.createElement('button');
 
 	checklistItem.className = HTML_CONSTANTS.TODO_CHECKLIST_ITEM;
 	
@@ -34,9 +35,12 @@ class htmlGenerator {
 	checklistItemCheckbox.type = 'checkbox';
 	checklistItemCheckbox.checked = todoChecklistItem.isCompleted;
 
+	checklistItemRemoveButton.type = 'button';
+	checklistItemRemoveButton.className = HTML_CONSTANTS.TODO_CHECKLIST_ITEM_REMOVE_BUTTON;
 
 	checklistItem.appendChild(checklistItemDescription);
 	checklistItem.appendChild(checklistItemCheckbox);
+	checklistItem.appendChild(checklistItemRemoveButton);
 
 	return checklistItem;
     }
