@@ -69,6 +69,28 @@ class htmlManager {
 	return this;   
     }
 
+    insertProject(project, index) {
+	if (index === 0) {
+	    this.prependProject(project);
+	    return this;
+	}
+
+	let isIndexEnd = index === this.#projectsContainer.children.length;
+	if (isIndexEnd) {
+	    this.appendProject(project);
+	}
+
+	let projectHTML = this.#htmlGenerator.generateProjectHTML(project);
+
+	if (!this.#isValidProjectIndex(index)) {
+	    console.error(`Attempted to add project at index outside of current project list(Project Index ${index})`);
+	    return this;
+	}
+
+	let projectInDesiredIndex = this.#projectsContainer.children[index];
+	this.#projectsContainer.insertBefore(projectHTML, projectInDesiredIndex);
+    }
+
     loadProjects(projectList) {
 	let thisHtmlHandler = this;
 	for (const project of projectList) {
