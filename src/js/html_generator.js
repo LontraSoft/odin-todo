@@ -147,6 +147,25 @@ class htmlGenerator {
 	return todoNotes;
     }
 
+    generateAddTodo() {
+	const addTodoContainer = this.doc.createElement('section');
+	const addTodoInput = this.doc.createElement('input');
+	const addTodoButton = this.doc.createElement('button');
+
+	addTodoContainer.className = HTML_CONSTANTS.ADD_TODO_CONTAINER;
+	
+	addTodoInput.className = HTML_CONSTANTS.ADD_TODO_INPUT;
+	addTodoInput.type = 'text';
+
+	addTodoButton.className = HTML_CONSTANTS.ADD_TODO_BUTTON;
+	addTodoButton.type = 'button';
+
+	addTodoContainer.appendChild(addTodoInput);
+	addTodoContainer.appendChild(addTodoButton);
+
+	return addTodoContainer;
+    }
+
     // TODO: Add dragdrop icon
     generateTodo (todo) {
 	const todoContainer = this.doc.createElement('div');
@@ -193,6 +212,7 @@ class htmlGenerator {
 	const projectName = this.doc.createElement('input');
 	const projectPriority = this.generatePriorityDropdown();
 	const projectRemoveButton = this.doc.createElement('button');
+	const addTodoContainer = this.generateAddTodo();
 	const todoList = this.generateTodoList(project.todoList);
 
 	projectContainer.className = HTML_CONSTANTS.PROJECT_CONTAINER;
@@ -209,6 +229,7 @@ class htmlGenerator {
 	projectContainer.appendChild(projectName);
 	projectContainer.appendChild(projectPriority);
 	projectContainer.appendChild(projectRemoveButton);
+	projectContainer.appendChild(addTodoContainer);
 	projectContainer.appendChild(todoList);
 
 	return projectContainer;
