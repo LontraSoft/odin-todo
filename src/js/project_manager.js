@@ -15,7 +15,7 @@ class ProjectManager {
     }
 
     isTodoIndexValid(projectIndex, todoIndex) {
-	return isProjectIndexValid(projectIndex) && todoIndex < this.#projects[projectIndex].todoList.length; 
+	return this.isProjectIndexValid(projectIndex) && todoIndex < this.#projects[projectIndex].todoList.length; 
     }
     
     constructor(projectList = []) {
