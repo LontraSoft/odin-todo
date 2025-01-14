@@ -33,6 +33,11 @@ class htmlHandler {
 	return addProjectInput.value;
     }
 
+    getTodoList(projectIndex) {
+	let sourceProject = this.getProjectContainer(projectIndex);
+	return sourceProject.querySelector(`.${HTML_CONSTANTS.TODO_LIST}`);
+    }
+
 }
 
 export default htmlHandler;
