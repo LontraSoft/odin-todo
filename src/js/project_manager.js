@@ -53,6 +53,23 @@ class ProjectManager {
 	return this;
     }
 
+    removeTodo(projectIndex, todoIndex) {
+	if (!this.isProjectIndexValid(projectIndex)) {
+	    console.error(`Attempted to remove todo from non-existant project: Id ${projectIndex}`);
+	    return this;
+	}
+	
+	if (!this.isTodoIndexValid(projectIndex, todoIndex)) {
+	    console.error(`Attempted to remove non-existant todo(Id ${todoIndex}) from project(Id ${projectIndex})`);
+	    return this;
+	}
+
+	this.#projects[projectIndex].removeTodo(todoIndex);
+	this.saveProjects();
+
+	return this;
+    }
+
     getProject(projectIndex) {
 	if (!this.isProjectIndexValid(projectIndex)) {
 	    console.error(`Attempted to get non-existent project(Project Index: ${projectIndex})`);
