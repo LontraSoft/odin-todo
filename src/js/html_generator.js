@@ -26,7 +26,7 @@ class htmlGenerator {
 
 	checklistItem.className = HTML_CONSTANTS.TODO_CHECKLIST_ITEM;
 	
-	checklistItemDescription.className = html_classnames.TODO_CHECKLIST_ITEM_DESCRIPTION;
+	checklistItemDescription.className = HTML_CONSTANTS.TODO_CHECKLIST_ITEM_DESCRIPTION;
 	checklistItemDescription.type = 'text';
 	
 	checklistItemCheckbox.className = HTML_CONSTANTS.TODO_CHECKLIST_ITEM_CHECKBOX;
