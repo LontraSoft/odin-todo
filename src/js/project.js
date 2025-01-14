@@ -15,6 +15,10 @@ class Project {
 	return id;
     }
 
+    #isTodoIndexValid(todoIndex) {
+	return todoIndex >= 0 && todoIndex < this.#todoList.length;
+    }
+
     loadTodoList(...todos) {
 	for (let todo of todos) {
 	    if (todo instanceof Todo) {
