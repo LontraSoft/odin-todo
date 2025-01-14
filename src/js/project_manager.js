@@ -41,6 +41,14 @@ class ProjectManager {
 	return this;
     }
 
+    getProject(projectIndex) {
+	if (!this.isProjectIndexValid(projectIndex)) {
+	    console.error(`Attempted to get non-existent project(Project Index: ${projectIndex})`);
+	}
+	
+	return this.#projects[projectIndex];
+    }
+
 }
 
 export default ProjectManager;
