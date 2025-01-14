@@ -101,6 +101,32 @@ class ProjectManager {
 	return this;
     }
 
+    moveTodo(sourceProjectIndex, targetProjectIndex, sourceTodoIndex, targetTodoIndex) {
+	if (!this.isProjectIndexValid(sourceProjectIndex)) {
+	    console.error(`Attempted to move todo from non-existant source project(Index ${sourceProjectIndex})`);
+	}
+
+	if (!this.isTodoIndexValid(sourceProjectIndex, sourceTodoIndex)) {
+	    console.error(`Attempted to move non-existant todo(Project Index: ${sourceProjectIndex}, Todo Index: ${sourceTodoIndex})`);
+	}
+
+	if (!this.isProjectIndexValid(targetProjectIndex)) {
+	    console.error(`Attempted to move todo to non-existant target project(Index ${targetProjectIndex})`);
+	}
+
+	let isTodoMovingToValidTargetIndex = this.#projects[targetProjectIndex].todoList.length <= targetTodoIndex;
+	if (!isTodoMovingToValidTargetIndex) {
+	    console.error(`Attempted to move todo to invalid target todo list slot(Index ${targetTodoIndex})`);
+	}
+
+	let todoToMove = this.#projects[sourceProjectIndex].todoList[sourceTodoIndex];
+	this.#projects[sourceProjectIndex].removeTodo(sourceTodoIndex);
+	this.#projects[targetProjectIndex].addTodo(todoToMove, targetTodoIndex);
+	this.saveProjects();
+	
+	return this;
+    }
+
     saveProjects() {
 	console.log(`TODO: Implement save functionality`);
 	let projectsJSON = JSON.stringify(this.#projects);
