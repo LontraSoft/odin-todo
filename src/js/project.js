@@ -43,8 +43,16 @@ class Project {
 
     get todoList() { return this.#todoList; }
 
-    addTodo(todo) {
-	this.#todoList.push(todo);
+    addTodo(todo, index = this.#todoList.length) {
+	let isIndexAtEnd = index === this.#todoList.length;
+	if (isIndexAtEnd) {
+	    this.#todoList.push(todo);
+	    return;
+	}
+	if (!this.#isTodoIndexValid(index)) {
+	    console.error(`Attempted to add todo at invalid index(Todo Index: ${index})`);
+	}
+	this.#todoList.splice(index, 0, todo);
     }
 
     removeTodo(todoIndex) {
