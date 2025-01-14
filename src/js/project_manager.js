@@ -4,6 +4,8 @@ import Priority from './priority';
 class ProjectManager {
     #projects;
 
+    static #_EMPTY_PROJECTS = [];
+
     isProjectsEmpty() {
 	return this.#projects.length === 0;
     }
@@ -53,6 +55,30 @@ class ProjectManager {
 	return this.#projects;
     }
 
+    saveProjects() {
+	console.log(`TODO: Implement save functionality`);
+	let projectsJSON = JSON.stringify(this.#projects);
+	localStorage.setItem('projects', projectsJSON);
+    }
+
+    // When dates are loaded in from JSON they are stored as strings this
+    // puts them back in a Date object
+    #fixTodoDueDates() {
+	for (const project of this.#projects) {
+	    for (const todo of project.todoList) {
+		todo.dueDate = new Date(todo.dueDate);
+	    }
+	}
+    }
+    
+    loadProjects() {
+	console.log(`TODO: Implement load functionality`);
+	this.#projects = JSON.parse(localStorage.getItem('projects'));
+	if (this.#projects === null) {
+	    this.#projects = ProjectManager.#_EMPTY_PROJECTS;
+	}
+	this.#fixTodoDueDates();
+    }
 }
 
 export default ProjectManager;
