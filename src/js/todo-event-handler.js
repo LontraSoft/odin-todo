@@ -13,6 +13,15 @@ class TodoEventHandler {
 	this.#projectManager = projectManager;
 	return this;
     }
+
+    updateHtmlManager(newHtmlManager) {
+	this.#htmlManager = newHtmlManager;
+    }
+
+    updateProjectManager(newProjectManager) {
+	this.#projectManager = newProjectManager;
+    }
+
 }
 
 export default TodoEventHandler;
