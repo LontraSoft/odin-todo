@@ -47,6 +47,13 @@ class Project {
 	this.#todoList.push(todo);
     }
 
+    removeTodo(todoIndex) {
+	if (!this.#isTodoIndexValid(todoIndex)) {
+	    console.error(`Attempted to remove non-existant Todo(Todo Index: ${todoIndex})`);
+	}
+	this.#todoList.splice(todoIndex, 1);
+    }
+
     toJSON() {
 	return {
 	    id: this.#id,
