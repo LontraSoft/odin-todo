@@ -1,3 +1,6 @@
+export const ADD_PROJECT_INPUT_ID = 'add-project-input';
+export const ADD_PROJECT_BUTTON_ID = 'add-project-button';
+
 export const PROJECTS_CONTAINER = 'projects-container';
 export const PROJECT_CONTAINER = 'project-container';
 export const PROJECT_NAME = 'project-name';
