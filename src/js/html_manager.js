@@ -14,6 +14,10 @@ class htmlHandler {
 	this.#projectsContainer = this.#doc.querySelector(`#${HTML_CONSTANTS.PROJECTS_CONTAINER}`);
     }
     
+    getProjectsContainer() {
+	return this.#projectsContainer;
+    }
+    
 }
 
 export default htmlHandler;
