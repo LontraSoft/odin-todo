@@ -28,12 +28,12 @@ class htmlGenerator {
 	
 	checklistItemDescription.className = HTML_CONSTANTS.TODO_CHECKLIST_ITEM_DESCRIPTION;
 	checklistItemDescription.type = 'text';
+	checklistItemDescription.value = todoChecklistItem.description;
 	
 	checklistItemCheckbox.className = HTML_CONSTANTS.TODO_CHECKLIST_ITEM_CHECKBOX;
 	checklistItemCheckbox.type = 'checkbox';
 	checklistItemCheckbox.checked = todoChecklistItem.isCompleted;
 
-	checklistItemDescription.value = todoChecklistItem.description;
 
 	checklistItem.appendChild(checklistItemDescription);
 	checklistItem.appendChild(checklistItemCheckbox);
