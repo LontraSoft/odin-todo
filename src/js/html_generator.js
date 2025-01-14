@@ -47,13 +47,35 @@ class htmlGenerator {
 
     generateTodoChecklist(checklist) {
 	const todoChecklist = this.doc.createElement('ul');
+	const addChecklistItemHTML = this.generateAddChecklistItem();
 	todoChecklist.className = HTML_CONSTANTS.TODO_CHECKLIST;
 
 	checklist.forEach((todoChecklistItem) => {
 	    todoChecklist.appendChild(this.generateTodoChecklistItem(todoChecklistItem));
 	});
 
+	todoChecklist.appendChild(addChecklistItemHTML);
+
 	return todoChecklist;
+    }
+
+    generateAddChecklistItem() {
+	const addChecklistItemContainer = this.doc.createElement('section');
+	const addChecklistItemInput = this.doc.createElement('input');
+	const addChecklistItemButton = this.doc.createElement('button');
+
+	addChecklistItemContainer.className = HTML_CONSTANTS.ADD_CHECKLIST_ITEM_CONTAINER;
+
+	addChecklistItemInput.className = HTML_CONSTANTS.ADD_CHECKLIST_ITEM_INPUT;
+	addChecklistItemInput.type = 'text';
+
+	addChecklistItemButton.className = HTML_CONSTANTS.ADD_CHECKLIST_ITEM_BUTTON;
+	addChecklistItemButton.type = 'button';
+
+	addChecklistItemContainer.appendChild(addChecklistItemInput);
+	addChecklistItemContainer.appendChild(addChecklistItemButton);
+
+	return addChecklistItemContainer;
     }
 
     generateTodoList(todos) {
