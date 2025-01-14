@@ -69,6 +69,12 @@ class htmlManager {
 	return this;   
     }
 
+    loadProjects(projectList) {
+	let thisHtmlHandler = this;
+	for (const project of projectList) {
+	    thisHtmlHandler.appendProject(project);
+	}
+    }
 }
 
 export default htmlManager;
