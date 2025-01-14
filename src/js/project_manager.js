@@ -24,6 +24,12 @@ class ProjectManager {
 	return this.#projects.length;
     }
 
+    addProject(project) {
+	this.#projects.unshift(project);
+	this.saveProjects();
+	return this;
+    }
+
 }
 
 export default ProjectManager;
