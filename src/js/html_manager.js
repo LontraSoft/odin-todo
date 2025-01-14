@@ -49,6 +49,13 @@ class htmlManager {
 	return todoList.children[todoIndex];
     }
 
+    prependProject(project) {
+	let projectHTML = this.#htmlGenerator.generateProjectHTML(project);
+
+	this.#projectsContainer.prepend(projectHTML);
+	return this;
+    }
+
 }
 
 export default htmlManager;
