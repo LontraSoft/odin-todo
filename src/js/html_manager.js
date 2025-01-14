@@ -38,6 +38,17 @@ class htmlHandler {
 	return sourceProject.querySelector(`.${HTML_CONSTANTS.TODO_LIST}`);
     }
 
+    getTodo(projectIndex, todoIndex) {
+	let todoList = this.getTodoList(projectIndex);
+
+	let isValidTodoIndex = todoIndex < todoList.children.length;
+	if (!isValidTodoIndex) {
+	    console.error(`Attempted to get non-existant todo container(Todo Index ${todoIndex})`);
+	}
+	
+	return todoList.children[todoIndex];
+    }
+
 }
 
 export default htmlHandler;
