@@ -89,7 +89,7 @@ header {
     font-weight: bold;
 }
 
-.projects-container {
+#projects-container {
     display: grid;
     
     background-color: var(--background-color);
