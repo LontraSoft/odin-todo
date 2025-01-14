@@ -7,6 +7,12 @@ class htmlManager {
     #htmlGenerator;
     #projectsContainer;
     
+    #isValidProjectIndex(projectIndex) {
+	let projectsContainer = this.getProjectsContainer();
+	
+	return projectIndex < projectsContainer.children.length;
+    }
+    
     constructor(win, doc) {
 	this.#win = win;
 	this.#doc = doc;
