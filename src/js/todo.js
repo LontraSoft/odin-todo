@@ -85,6 +85,18 @@ class Todo {
     resetChecklist() {
 	this.#checklist.splice(0, this.#checklist.length);
     }
+
+    toJSON() {
+	return {
+	    id: this.#id,
+	    name: this.#name,
+	    description: this.#description,
+	    dueDate: this.#dueDate,
+	    priority: this.#priority,
+	    notes: this.#notes,
+	    checklist: this.#checklist,
+	};
+    }
 }
 
 export default Todo;
