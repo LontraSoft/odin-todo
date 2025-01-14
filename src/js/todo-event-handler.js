@@ -22,6 +22,18 @@ class TodoEventHandler {
 	this.#projectManager = newProjectManager;
     }
 
+    addNewProject = (event) => {
+	let newProjectName = this.#htmlManager.getAddProjectValue();
+	let project = new Project(newProjectName);
+	
+	this.#projectManager.addProject(project);
+	this.#htmlManager.prependProject(project);
+
+	this.saveProjects();
+
+	return this;
+    }
+
 }
 
 export default TodoEventHandler;
