@@ -13,6 +13,9 @@ class htmlGenerator {
     }
 
     #dateToDateTimeLocalValue(date) {
+	if(!(date instanceof Date)) {
+	    this.win.console.error(`Expected date, got ${date}`);
+	}
 	return date.toISOString().slice(0, 10);
     }
 
