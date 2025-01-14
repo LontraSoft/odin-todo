@@ -43,6 +43,14 @@ class Project {
 	this.#todoList.push(todo);
     }
 
+    toJSON() {
+	return {
+	    id: this.#id,
+	    name: this.#name,
+	    priority: this.#priority,
+	    todoList: this.#todoList,
+	};
+    }
 }
 
 export default Project;
