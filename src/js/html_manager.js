@@ -18,6 +18,16 @@ class htmlHandler {
 	return this.#projectsContainer;
     }
     
+    getProjectContainer(projectIndex) {
+	if (!this.#isValidProjectIndex(projectIndex)) {
+	    this.#win.console.error(`Attempted to get non-existant project container(Project Index ${projectIndex})`);
+	}
+
+	let projectsContainer = this.getProjectsContainer();
+	
+	return projectsContainer.children[projectIndex];
+    }
+
 }
 
 export default htmlHandler;
