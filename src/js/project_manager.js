@@ -82,6 +82,25 @@ class ProjectManager {
 	return this.#projects;
     }
 
+    moveProject(sourceIndex, targetIndex) {
+	if (!this.isProjectIndexValid(sourceIndex)) {
+	    console.error(`Attempted to move project from invalid source index(Index ${sourceIndex})`);
+	    return this;
+	}
+	
+	if (!this.isProjectIndexValid(targetIndex)) {
+	    console.error(`Attempted to move project to invalid target index(Index ${targetIndex})`);
+	    return this;
+	}
+
+	let projectToMove = this.#projects[sourceIndex];
+	this.#projects.splice(sourceIndex, 1);
+	this.#projects.splice(targetIndex, 0, projectToMove);
+	this.saveProjects();
+	
+	return this;
+    }
+
     saveProjects() {
 	console.log(`TODO: Implement save functionality`);
 	let projectsJSON = JSON.stringify(this.#projects);
