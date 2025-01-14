@@ -19,6 +19,11 @@ class ProjectManager {
     constructor(projectList = []) {
 	this.#projects = projectList;
     }
+
+    getProjectCount() {
+	return this.#projects.length;
+    }
+
 }
 
 export default ProjectManager;
