@@ -32,6 +32,16 @@ class ProjectManager {
 	return this;
     }
 
+    removeProject(projectIndex) {
+	if (!this.isProjectIndexValid(projectIndex)) {
+	    console.error(`Attempted to remove non-existant project(Index ${projectIndex})`);
+	}
+	
+	this.#projects.splice(projectIndex, 1);
+	this.saveProjects();
+	return this;
+    }
+
     addTodo(projectIndex, todo) {
 	if (!this.isProjectIndexValid(projectIndex)) {
 	    console.error(`Attempted to add to non-existant project: Id ${projectIndex}`);
