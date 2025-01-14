@@ -57,6 +57,10 @@ class htmlGenerator {
 
 	todoList.className = HTML_CONSTANTS.TODO_LIST;
 
+	if (!todos) {
+	    return todoList;
+	}
+
 	todos.forEach((todo) => {
 	    console.log(todo);
 	    todoList.appendChild(this.generateTodo(todo));
