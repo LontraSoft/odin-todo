@@ -49,6 +49,10 @@ class ProjectManager {
 	return this.#projects[projectIndex];
     }
 
+    getProjects() {
+	return this.#projects;
+    }
+
 }
 
 export default ProjectManager;
