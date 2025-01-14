@@ -30,6 +30,17 @@ class ProjectManager {
 	return this;
     }
 
+    addTodo(projectIndex, todo) {
+	if (!this.isProjectIndexValid(projectIndex)) {
+	    console.error(`Attempted to add to non-existant project: Id ${projectIndex}`);
+	    return this;
+	}
+
+	this.#projects[projectIndex].addTodo(todo);
+	this.saveProjects();
+	return this;
+    }
+
 }
 
 export default ProjectManager;
