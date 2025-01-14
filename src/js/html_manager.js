@@ -28,6 +28,11 @@ class htmlHandler {
 	return projectsContainer.children[projectIndex];
     }
 
+    getAddProjectValue() {
+	let addProjectInput = this.#doc.querySelector(`#${HTML_CONSTANTS.ADD_PROJECT_INPUT_ID}`);
+	return addProjectInput.value;
+    }
+
 }
 
 export default htmlHandler;
