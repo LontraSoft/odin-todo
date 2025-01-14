@@ -1,7 +1,7 @@
 import * as HTML_CONSTANTS from './html_constants';
 import HtmlGenerator from './html_generator';
 
-class htmlHandler {
+class htmlManager {
     #win;
     #doc;
     #htmlGenerator;
@@ -51,4 +51,4 @@ class htmlHandler {
 
 }
 
-export default htmlHandler;
+export default htmlManager;
