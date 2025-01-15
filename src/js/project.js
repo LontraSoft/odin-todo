@@ -10,7 +10,7 @@ class Project {
 	return todoIndex >= 0 && todoIndex < this.#todoList.length;
     }
 
-    loadTodoList(...todos) {
+    loadTodoList(todos) {
 	for (let todo of todos) {
 	    if (todo instanceof Todo) {
 		this.#todoList.push(todo);
