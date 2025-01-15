@@ -8,7 +8,6 @@ class TodoChecklistItem {
 }
 
 class Todo {
-    #id;
     #name;
     #description;
     #dueDate;
@@ -16,21 +15,12 @@ class Todo {
     #notes;
     #checklist;
 
-    static #nextId = 0;
-
-    static #checkoutId() {
-	const id = this.#nextId;
-	this.#nextId += 1;
-	return id;
-    }
-    
     constructor(name,
 		description = "",
 		dueDate = new Date() + 1,
 		priority = Priority.MEDIUM,
 		notes = "")
     {
-	this.#id = Todo.#checkoutId();
 	this.#name = name;
 	this.#description = description;
 	this.#dueDate = dueDate;
@@ -38,8 +28,6 @@ class Todo {
 	this.#notes = notes;
 	this.#checklist = [];
     }
-
-    get id() { return this.#id; }
 
     get name() { return this.#name; }
     set name(newName) { this.#name = newName; }
@@ -88,7 +76,6 @@ class Todo {
 
     toJSON() {
 	return {
-	    id: this.#id,
 	    name: this.#name,
 	    description: this.#description,
 	    dueDate: this.#dueDate,
