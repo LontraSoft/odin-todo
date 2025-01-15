@@ -234,8 +234,8 @@ class htmlGenerator {
 	const projectName = this.doc.createElement('input');
 	const projectPriority = this.generatePriorityDropdown();
 	const projectRemoveButton = this.doc.createElement('button');
-	const addTodoContainer = this.generateAddTodo();
 	const todoList = this.generateTodoList(project.todoList);
+	const addTodoContainer = this.generateAddTodo();
 
 	projectContainer.className = HTML_CONSTANTS.PROJECT_CONTAINER;
 
@@ -251,8 +251,8 @@ class htmlGenerator {
 	projectContainer.appendChild(projectName);
 	projectContainer.appendChild(projectPriority);
 	projectContainer.appendChild(projectRemoveButton);
-	projectContainer.appendChild(addTodoContainer);
 	projectContainer.appendChild(todoList);
+	projectContainer.appendChild(addTodoContainer);
 
 	return projectContainer;
     }
