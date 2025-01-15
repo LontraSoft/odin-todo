@@ -60,6 +60,12 @@ class htmlManager {
 	return Array.prototype.indexOf.call(this.#projectsContainer.children, projectContainer);
     }
 
+    getTodoIndexFromChild(todoChildNode) {
+	let todoListContainer = todoChildNode.closest(`.${HTML_CONSTANTS.TODO_LIST}`);
+	let todoContainer = todoChildNode.closest(`.${HTML_CONSTANTS.TODO_CONTAINER}`);
+	return Array.prototype.indexOf.call(todoListContainer.children, todoContainer);
+    }
+
     prependProject(project) {
 	let projectHTML = this.#htmlGenerator.generateProjectHTML(project);
 
