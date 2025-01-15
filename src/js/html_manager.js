@@ -43,6 +43,11 @@ class htmlManager {
 	return addProjectInput.value;
     }
 
+    clearAddProjectValue() {
+	let addProjectInput = this.#getAddProjectInput();
+	addProjectInput.value = '';
+    }
+
     getTodoList(projectIndex) {
 	let sourceProject = this.getProjectContainer(projectIndex);
 	return sourceProject.querySelector(`.${HTML_CONSTANTS.TODO_LIST}`);
