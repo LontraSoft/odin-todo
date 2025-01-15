@@ -31,7 +31,7 @@ class TodoEventHandler {
 	this.#projectManager = newProjectManager;
     }
 
-    addNewProject = (event) => {
+    onAddNewProject = (event) => {
 	let newProjectName = this.#htmlManager.getAddProjectValue();
 	let project = new Project(newProjectName);
 	
