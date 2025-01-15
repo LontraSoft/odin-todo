@@ -15,9 +15,15 @@ class Todo {
     #notes;
     #checklist;
 
+    #generateTomorrowDate() {
+	let date = new Date();
+	date.setDate(date.getDate() + 1);
+	return date;
+    }
+
     constructor(name,
 		description = "",
-		dueDate = new Date() + 1,
+		dueDate = this.#generateTomorrowDate(),
 		priority = Priority.MEDIUM,
 		notes = "")
     {
