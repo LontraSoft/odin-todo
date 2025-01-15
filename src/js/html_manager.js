@@ -105,6 +105,12 @@ class htmlManager {
 	return Array.prototype.indexOf.call(todoListContainer.children, todoContainer);
     }
 
+    getChecklistIndexFromChild(checklistChildNode) {
+	let checklistContainer = checklistChildNode.closest(`.${HTML_CONSTANTS.TODO_CHECKLIST}`);
+	let checklistItemContainer = checklistChildNode.closest(`.${HTML_CONSTANTS.TODO_CHECKLIST_ITEM}`);
+	return Array.prototype.indexOf.call(checklistContainer.children, checklistItemContainer);
+    }
+
     prependProject(project) {
 	let projectHTML = this.#htmlGenerator.generateProjectHTML(project);
 
