@@ -63,6 +63,21 @@ class htmlManager {
 	addTodoInput.value = '';
     }
 
+    #getAddChecklistItemInput(projectIndex, todoIndex) {
+	let todoContainer = this.getTodo(projectIndex, todoIndex);
+	return todoContainer.querySelector(`.${HTML_CONSTANTS.ADD_CHECKLIST_ITEM_INPUT}`);
+    }
+
+    getAddChecklistItemValue(projectIndex, todoIndex) {
+	let addChecklistItemInput = this.getAddChecklistItemInput(projectIndex, todoIndex);
+	return addChecklistItemInput.value;
+    }
+
+    clearAddChecklistItemValue(projectIndex, todoIndex) {
+	let addChecklistItemInput = this.#getAddChecklistItemInput(projectIndex, todoIndex);
+	addChecklistItemInput.value = '';
+    }
+
     getTodoList(projectIndex) {
 	let sourceProject = this.getProjectContainer(projectIndex);
 	return sourceProject.querySelector(`.${HTML_CONSTANTS.TODO_LIST}`);
