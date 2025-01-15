@@ -1,3 +1,4 @@
+import Todo from './todo.js';
 import Project from './project';
 import Priority from './priority';
 
@@ -140,16 +141,43 @@ class ProjectManager {
 	    for (const todo of project.todoList) {
 		todo.dueDate = new Date(todo.dueDate);
 	    }
+    #parseProjectData(projectData) {
+	let todos = [];
+	let projectName = projectData.name;
+	let projectPriorityName = projectData.priority.name;
+	let projectPriorityLevel = projectData.priority.priorityLevel;
+	let projectPriority = new Priority(projectPriorityName, projectPriorityLevel);
+	for (const todoData of projectData.todoList) {
+	    todos.push(this.#parseTodoData(todoData));
 	}
+	
+	return new Project(projectName, projectPriority, ...todos)
     }
-    
+
+    #parseTodoData(todoData) {
+	let todoName = todoData.name;
+	let todoDescription = todoData.description;
+	let todoDueDate = new Date(todoData.dueDate);
+	let todoPriorityName = todoData.priority.name;
+	let todoPriorityLevel = todoData.priority.priorityLevel;
+	let todoPriority = new Priority(todoPriorityName, todoPriorityLevel);
+	let todoNotes = todoData.notes;
+	let todo = new Todo(todoName, todoDescription, todoDueDate, todoPriority, todoNotes);
+	
+	for (const checklistItemData of todoData.checklist) {
+	    let checklistItemDescription = checklistItemData.description;
+	    let checklistItemIsCompleted = checklistItemData.isCompleted;
+	    todo.addChecklistItem(checklistItemDescription, checklistItemIsCompleted);
+	}
+	return todo;
+    }
+
     loadProjects() {
 	console.log(`TODO: Implement load functionality`);
-	this.#projects = JSON.parse(localStorage.getItem('projects'));
-	if (this.#projects === null) {
-	    this.#projects = ProjectManager.#_EMPTY_PROJECTS;
+	let projectsData = JSON.parse(localStorage.getItem('projects'));
+	for (const projectData of projectsData) {
+	    this.#projects.push(this.#parseProjectData(projectData));
 	}
-	this.#fixTodoDueDates();
     }
 }
 
