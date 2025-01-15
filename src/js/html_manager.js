@@ -147,6 +147,12 @@ class htmlManager {
 	this.#projectsContainer.insertBefore(projectHTML, projectInDesiredIndex);
     }
 
+    addTodo(projectIndex, todo) {
+	let targetTodoList = this.getTodoList(projectIndex);
+	let newTodoHTML = this.#htmlGenerator.generateTodo(todo);
+	targetTodoList.appendChild(newTodoHTML);
+    }
+
     loadProjects(projectList) {
 	let thisHtmlHandler = this;
 	for (const project of projectList) {
