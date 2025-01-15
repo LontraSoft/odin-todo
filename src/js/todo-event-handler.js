@@ -5,12 +5,21 @@ import HtmlManager from './html_manager';
 import * as HTML_CONSTANTS from './html_constants';
 
 class TodoEventHandler {
+    #win;
+    #doc;
     #htmlManager;
     #projectManager;
+    #projectsContainer;
 
-    constructor(htmlGenerator, htmlManager, projectManager) {
+    constructor(win, doc, htmlManager, projectManager) {
+	this.#win = win;
+	this.#doc = doc;
 	this.#htmlManager = htmlManager;
 	this.#projectManager = projectManager;
+
+	let projectsContainer = this.#htmlManager.getProjectsContainer();
+	projectsContainer.addEventListener('click', this.redirectProjectsContainerClick);
+	
 	return this;
     }
 
