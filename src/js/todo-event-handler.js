@@ -38,6 +38,12 @@ class TodoEventHandler {
 	this.#projectManager.addProject(project);
 	this.#htmlManager.prependProject(project);
 
+    onAddTodoClick = (event) => {
+	let projectIndex = this.#htmlManager.getProjectIndexFromChild(event.target);
+	let todoName = this.#htmlManager.getAddTodoValue(projectIndex);
+	this.#addTodo(projectIndex, todoName);
+    }
+
 	this.saveProjects();
 
 	return this;
