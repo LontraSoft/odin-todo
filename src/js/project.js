@@ -2,18 +2,9 @@ import Priority from './priority'
 import Todo from './todo'
 
 class Project {
-    #id;
     #name;
     #priority;
     #todoList;
-
-    static #nextId = 0;
-
-    static #checkoutId() {
-	const id = this.#nextId;
-	this.#nextId += 1;
-	return id;
-    }
 
     #isTodoIndexValid(todoIndex) {
 	return todoIndex >= 0 && todoIndex < this.#todoList.length;
@@ -28,7 +19,6 @@ class Project {
     }
     
     constructor(name, priority = Priority.MEDIUM, ...todos) {
-	this.#id = Project.#checkoutId();
 	this.#name = name;
 	this.#priority = priority;
 	this.#todoList = [];
@@ -64,7 +54,6 @@ class Project {
 
     toJSON() {
 	return {
-	    id: this.#id,
 	    name: this.#name,
 	    priority: this.#priority,
 	    todoList: this.#todoList,
