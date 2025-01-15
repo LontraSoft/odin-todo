@@ -55,6 +55,11 @@ class htmlManager {
 	return todoList.children[todoIndex];
     }
 
+    getProjectIndexFromChild(projectChildNode) {
+	let projectContainer = projectChildNode.closest(`.${HTML_CONSTANTS.PROJECT_CONTAINER}`);
+	return Array.prototype.indexOf.call(this.#projectsContainer.children, projectContainer);
+    }
+
     prependProject(project) {
 	let projectHTML = this.#htmlGenerator.generateProjectHTML(project);
 
