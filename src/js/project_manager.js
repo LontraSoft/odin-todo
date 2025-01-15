@@ -129,7 +129,6 @@ class ProjectManager {
     }
 
     saveProjects() {
-	console.log(`TODO: Implement save functionality`);
 	let projectsJSON = JSON.stringify(this.#projects);
 	localStorage.setItem('projects', projectsJSON);
     }
@@ -166,7 +165,6 @@ class ProjectManager {
     }
 
     loadProjects() {
-	console.log(`TODO: Implement load functionality`);
 	let projectsData = JSON.parse(localStorage.getItem('projects'));
 	for (const projectData of projectsData) {
 	    this.#projects.push(this.#parseProjectData(projectData));
