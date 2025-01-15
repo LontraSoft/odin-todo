@@ -134,13 +134,6 @@ class ProjectManager {
 	localStorage.setItem('projects', projectsJSON);
     }
 
-    // When dates are loaded in from JSON they are stored as strings this
-    // puts them back in a Date object
-    #fixTodoDueDates() {
-	for (const project of this.#projects) {
-	    for (const todo of project.todoList) {
-		todo.dueDate = new Date(todo.dueDate);
-	    }
     #parseProjectData(projectData) {
 	let todos = [];
 	let projectName = projectData.name;
