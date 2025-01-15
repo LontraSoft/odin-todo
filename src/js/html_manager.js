@@ -48,6 +48,21 @@ class htmlManager {
 	addProjectInput.value = '';
     }
 
+    #getAddTodoInput(projectIndex) {
+	let projectContainer = this.getProjectContainer(projectIndex);
+	return projectContainer.querySelector(`.${HTML_CONSTANTS.ADD_TODO_INPUT}`);
+    }
+    
+    getAddTodoValue(projectIndex) {
+	let addTodoInput = this.#getAddTodoInput(projectIndex);
+	return addTodoInput.value;
+    }
+
+    clearAddTodoValue(projectIndex) {
+	let addTodoInput = this.#getAddTodoInput(projectIndex);
+	addTodoInput.value = '';
+    }
+
     getTodoList(projectIndex) {
 	let sourceProject = this.getProjectContainer(projectIndex);
 	return sourceProject.querySelector(`.${HTML_CONSTANTS.TODO_LIST}`);
