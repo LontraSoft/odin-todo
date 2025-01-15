@@ -2,7 +2,7 @@ import ProjectManager from './project_manager';
 import Project from './project';
 import HtmlGenerator from './html_generator';
 import HtmlManager from './html_manager';
-import * as html_classnames from './html_constants';
+import * as HTML_CONSTANTS from './html_constants';
 
 class TodoEventHandler {
     #htmlManager;
