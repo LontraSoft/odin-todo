@@ -34,8 +34,12 @@ class htmlManager {
 	return projectsContainer.children[projectIndex];
     }
 
+    #getAddProjectInput() {
+	return this.#doc.querySelector(`#${HTML_CONSTANTS.ADD_PROJECT_INPUT_ID}`);
+    }
+
     getAddProjectValue() {
-	let addProjectInput = this.#doc.querySelector(`#${HTML_CONSTANTS.ADD_PROJECT_INPUT_ID}`);
+	let addProjectInput = this.#getAddProjectInput();
 	return addProjectInput.value;
     }
 
