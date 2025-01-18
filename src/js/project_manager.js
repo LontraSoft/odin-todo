@@ -159,7 +159,8 @@ class ProjectManager {
 	for (const checklistItemData of todoData.checklist) {
 	    let checklistItemDescription = checklistItemData.description;
 	    let checklistItemIsCompleted = checklistItemData.isCompleted;
-	    todo.addChecklistItem(checklistItemDescription, checklistItemIsCompleted);
+	    let newChecklistItem = new TodoChecklistItem(checklistItemDescription, checklistItemIsCompleted);
+	    todo.addChecklistItem(newChecklistItem);
 	}
 	return todo;
     }
