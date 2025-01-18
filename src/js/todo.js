@@ -63,13 +63,13 @@ class Todo {
 	return !this.#checklist.isEmpty();
     }
 
-    addChecklistItem(description, isCompleted = false) {
-	this.#checklist.addChecklistItem(description, isCompleted);
+    addChecklistItem(checklistItem) {
+	this.#checklist.push(checklistItem);
+	return this;
     }
 
-        addChecklistItem(description, isCompleted = false) {
-	this.#checklist.push(new TodoChecklistItem(description, isCompleted));
-	return this;
+    setChecklistItemCompletion(indexOfChecklistItem, isCompleted) {
+	this.#checklist[indexOfChecklistItem].isCompleted = isCompleted;
     }
 
     removeChecklistItem(indexOfRemovedItem) {
@@ -92,4 +92,4 @@ class Todo {
     }
 }
 
-export default Todo;
+export {Todo, TodoChecklistItem};
