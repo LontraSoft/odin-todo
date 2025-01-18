@@ -153,6 +153,13 @@ class htmlManager {
 	targetTodoList.appendChild(newTodoHTML);
     }
 
+    addChecklistItem(projectIndex, todoIndex, todoChecklistItem) {
+	let targetTodo = this.getTodo(projectIndex, todoIndex);
+	let targetChecklist = targetTodo.querySelector(`.${HTML_CONSTANTS.TODO_CHECKLIST}`);
+	let newChecklistItemHTML = this.#htmlGenerator.generateTodoChecklistItem(todoChecklistItem);
+	targetChecklist.appendChild(newChecklistItemHTML);
+    }
+
     loadProjects(projectList) {
 	let thisHtmlHandler = this;
 	for (const project of projectList) {
