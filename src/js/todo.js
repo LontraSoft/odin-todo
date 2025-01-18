@@ -8,6 +8,8 @@ class TodoChecklistItem {
 	this.#description = description;
 	this.#isCompleted = isCompleted;
     }
+    toJSON() {
+	return {description: this.#description, isCompleted: this.#isCompleted};
     }
 }
 
