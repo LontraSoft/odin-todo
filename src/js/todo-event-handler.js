@@ -52,6 +52,17 @@ class TodoEventHandler {
 	this.#addChecklistItem(projectIndex, todoIndex, checklistDescription);
     }
 
+    #addTodo(projectIndex, todoName) {
+	let newTodo = new Todo(todoName);
+
+	this.#projectManager.addTodo(projectIndex, newTodo);
+	this.#htmlManager.addTodo(projectIndex, newTodo);
+
+	this.#projectManager.saveProjects();
+	
+	return this;
+    }
+
 	this.saveProjects();
 
 	return this;
