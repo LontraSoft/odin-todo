@@ -47,14 +47,12 @@ class htmlGenerator {
 
     generateTodoChecklist(checklist) {
 	const todoChecklist = this.doc.createElement('ul');
-	const addChecklistItemHTML = this.generateAddChecklistItem();
 	todoChecklist.className = HTML_CONSTANTS.TODO_CHECKLIST;
 
 	checklist.forEach((todoChecklistItem) => {
 	    todoChecklist.appendChild(this.generateTodoChecklistItem(todoChecklistItem));
 	});
 
-	todoChecklist.appendChild(addChecklistItemHTML);
 
 	return todoChecklist;
     }
@@ -200,6 +198,7 @@ class htmlGenerator {
 	const todoDescription = this.generateTodoDescription(todo.description);
 	const todoNotes = this.generateTodoNotes();
 	const todoChecklist = this.generateTodoChecklist(todo.checklist);
+	const addChecklistItemHTML = this.generateAddChecklistItem();
 	const todoRemoveButton = this.doc.createElement('button');
 
 	todoContainer.className = HTML_CONSTANTS.TODO_CONTAINER;
@@ -221,6 +220,7 @@ class htmlGenerator {
 	todoContentContainer.appendChild(todoDescription);
 	todoContentContainer.appendChild(todoNotes);
 	todoContentContainer.appendChild(todoChecklist);
+	todoContentContainer.appendChild(addChecklistItemHTML);
 	todoContentContainer.appendChild(todoRemoveButton);
 
 	todoContainer.appendChild(todoSidebar);
