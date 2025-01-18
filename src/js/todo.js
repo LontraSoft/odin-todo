@@ -8,6 +8,27 @@ class TodoChecklistItem {
 	this.#description = description;
 	this.#isCompleted = isCompleted;
     }
+
+    get description() {
+	return this.#description;
+    }
+
+    set description(newDescription) {
+	this.#description = String(newDescription);
+    }
+
+    get isCompleted() {
+	return this.#isCompleted;
+    }
+
+    set isCompleted(completionStatus) {
+	if (completionStatus !== true || completionStatus !== false) {
+	    console.error('Attempted to assign non-boolean value to isCompleted');
+	    return;
+	}
+	this.isCompleted = completionStatus;
+    }
+
     toJSON() {
 	return {description: this.#description, isCompleted: this.#isCompleted};
     }
