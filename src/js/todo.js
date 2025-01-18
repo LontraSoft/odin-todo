@@ -1,9 +1,13 @@
 import Priority from './priority';
 
 class TodoChecklistItem {
+    #description;
+    #isCompleted;
+    
     constructor(description, isCompleted = false) {
-	this.description = description;
-	this.isCompleted = isCompleted;
+	this.#description = description;
+	this.#isCompleted = isCompleted;
+    }
     }
 }
 
