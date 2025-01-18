@@ -1,3 +1,4 @@
+import {Todo, TodoChecklistItem} from './todo';
 import ProjectManager from './project_manager';
 import Project from './project';
 import HtmlGenerator from './html_generator';
