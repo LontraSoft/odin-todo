@@ -1,5 +1,5 @@
 import Priority from './priority'
-import Todo from './todo'
+import {Todo, TodoChecklistItem} from './todo'
 
 class Project {
     #name;
