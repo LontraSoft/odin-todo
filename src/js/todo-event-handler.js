@@ -68,6 +68,12 @@ class TodoEventHandler {
 	return this;
     }
 
+    #addChecklistItem(projectIndex, todoIndex, checklistDescription) {
+	let newChecklistItem = new TodoChecklistItem(checklistDescription);
+	this.#projectManager.addChecklistItem(projectIndex, todoIndex, newChecklistItem);
+	this.#htmlManager.addChecklistItem(projectIndex, todoIndex, newChecklistItem);
+    }
+
 }
 
 export default TodoEventHandler;
