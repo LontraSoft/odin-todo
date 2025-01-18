@@ -1,4 +1,4 @@
-import Todo from './todo.js';
+import {Todo, TodoChecklistItem} from './todo.js';
 import Project from './project';
 import Priority from './priority';
 
