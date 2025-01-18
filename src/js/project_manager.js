@@ -71,6 +71,11 @@ class ProjectManager {
 	return this;
     }
 
+    addChecklistItem(projectIndex, todoIndex, checklistItem) {
+	let targetTodo = this.#projects[projectIndex].getTodo(todoIndex);
+	targetTodo.addChecklistItem(checklistItem);
+    }
+
     getProject(projectIndex) {
 	if (!this.isProjectIndexValid(projectIndex)) {
 	    console.error(`Attempted to get non-existent project(Project Index: ${projectIndex})`);
