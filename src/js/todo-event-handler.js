@@ -39,6 +39,11 @@ class TodoEventHandler {
 	this.#projectManager.addProject(project);
 	this.#htmlManager.prependProject(project);
 
+	this.#projectManager.saveProjects();
+
+	return this;
+    }
+
     onAddTodoClick = (event) => {
 	let projectIndex = this.#htmlManager.getProjectIndexFromChild(event.target);
 	let todoName = this.#htmlManager.getAddTodoValue(projectIndex);
@@ -52,6 +57,12 @@ class TodoEventHandler {
 	this.#addChecklistItem(projectIndex, todoIndex, checklistDescription);
     }
 
+    onRemoveTodoClick = (event) => {
+	let projectIndex = this.#htmlManager.getProjectIndexFromChild(event.target);
+	let todoIndex = this.#htmlManager.getTodoIndexFromChild(event.target);
+	this.#removeTodo(projectIndex, todoIndex);
+    }
+
     #addTodo(projectIndex, todoName) {
 	let newTodo = new Todo(todoName);
 
@@ -62,6 +73,10 @@ class TodoEventHandler {
 	
 	return this;
     }
+
+    #removeTodo(projectIndex, todoIndex) {
+	this.#projectManager.removeTodo(projectIndex, todoIndex);
+	this.#htmlManager.removeTodo(projectIndex, todoIndex);
 
 	this.saveProjects();
 
@@ -74,6 +89,10 @@ class TodoEventHandler {
 	this.#htmlManager.addChecklistItem(projectIndex, todoIndex, newChecklistItem);
     }
 
+    #saveProjects() {
+	this.#projectManager.saveProjects();	
+	return this;
+    }
 }
 
 export default TodoEventHandler;
