@@ -45,6 +45,10 @@ class Project {
 	this.#todoList.splice(index, 0, todo);
     }
 
+    getTodo(todoIndex) {
+	return this.#todoList[todoIndex];
+    }
+
     removeTodo(todoIndex) {
 	if (!this.#isTodoIndexValid(todoIndex)) {
 	    console.error(`Attempted to remove non-existant Todo(Todo Index: ${todoIndex})`);
