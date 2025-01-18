@@ -69,7 +69,7 @@ class htmlManager {
     }
 
     getAddChecklistItemValue(projectIndex, todoIndex) {
-	let addChecklistItemInput = this.getAddChecklistItemInput(projectIndex, todoIndex);
+	let addChecklistItemInput = this.#getAddChecklistItemInput(projectIndex, todoIndex);
 	return addChecklistItemInput.value;
     }
 
