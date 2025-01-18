@@ -74,8 +74,8 @@ class Todo {
 	return this;
     }
 
-    setChecklistItemCompletion(indexOfChecklistItem, isCompleted) {
-	this.#checklist[indexOfChecklistItem].isCompleted = isCompleted;
+    getChecklistItem(indexOfChecklistItem) {
+	return this.#checklist[indexOfChecklistItem];
     }
 
     removeChecklistItem(indexOfRemovedItem) {
