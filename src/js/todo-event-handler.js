@@ -63,6 +63,12 @@ class TodoEventHandler {
 	this.#removeTodo(projectIndex, todoIndex);
     }
 
+    onRemoveProjectClick = (event) => {
+	let projectIndex = this.#htmlManager.getProjectIndexFromChild(event.target);
+	this.#projectManager.removeProject(projectIndex);
+	this.#htmlManager.removeProject(projectIndex);
+    }
+
     #addTodo(projectIndex, todoName) {
 	let newTodo = new Todo(todoName);
 
