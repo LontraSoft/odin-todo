@@ -63,6 +63,14 @@ class TodoEventHandler {
 	this.#removeTodo(projectIndex, todoIndex);
     }
 
+    onRemoveChecklistItemClick = (event) => {
+	let projectIndex = this.#htmlManager.getProjectIndexFromChild(event.target);
+	let todoIndex = this.#htmlManager.getTodoIndexFromChild(event.target);
+	let checklistItemIndex = this.#htmlManager.getChecklistIndexFromChild(event.target);
+	this.#projectManager.removeChecklistItem(projectIndex, todoIndex, checklistItemIndex);
+	this.#htmlManager.removeChecklistItem(projectIndex, todoIndex, checklistItemIndex);
+    }
+
     onRemoveProjectClick = (event) => {
 	let projectIndex = this.#htmlManager.getProjectIndexFromChild(event.target);
 	this.#projectManager.removeProject(projectIndex);

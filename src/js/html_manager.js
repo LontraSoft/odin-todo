@@ -176,6 +176,12 @@ class htmlManager {
 	targetChecklist.appendChild(newChecklistItemHTML);
     }
 
+    removeChecklistItem(projectIndex, todoIndex, todoChecklistItemIndex) {
+	let targetChecklist = this.getTodoChecklist(projectIndex, todoIndex);
+	let targetChecklistItem = targetChecklist.children[todoChecklistItemIndex];
+	targetChecklist.removeChild(targetChecklistItem);
+    }
+
     loadProjects(projectList) {
 	let thisHtmlHandler = this;
 	for (const project of projectList) {
