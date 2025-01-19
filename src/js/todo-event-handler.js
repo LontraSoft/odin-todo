@@ -32,6 +32,29 @@ class TodoEventHandler {
 	this.#projectManager = newProjectManager;
     }
 
+    redirectProjectsContainerClick = (event) => {
+	switch(event.target.className) {
+	case HTML_CONSTANTS.ADD_TODO_BUTTON:
+	    this.onAddTodoClick(event);
+	    break;
+	case HTML_CONSTANTS.ADD_CHECKLIST_ITEM_BUTTON:
+	    this.onAddChecklistItemClick(event);
+	    break;
+	case HTML_CONSTANTS.TODO_REMOVE_BUTTON:
+	    this.onRemoveTodoClick(event);
+	    break;
+	case HTML_CONSTANTS.TODO_CHECKLIST_ITEM_REMOVE_BUTTON:
+	    this.onRemoveChecklistItemClick(event);
+	    break;
+	case HTML_CONSTANTS.PROJECT_REMOVE_BUTTON:
+	    this.onRemoveProjectClick(event);
+	    break;
+	}
+
+	// DEBUG
+	this.#win.console.log(this.#projectManager.getProjects());
+    }
+
     onAddNewProject = (event) => {
 	let newProjectName = this.#htmlManager.getAddProjectValue();
 	let project = new Project(newProjectName);
