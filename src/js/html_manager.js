@@ -94,6 +94,11 @@ class htmlManager {
 	return todoList.children[todoIndex];
     }
 
+    getTodoChecklist(projectIndex, todoIndex) {
+	let targetTodo = this.getTodo(projectIndex, todoIndex);
+	return targetTodo.querySelector(`.${HTML_CONSTANTS.TODO_CHECKLIST}`);
+    }
+
     getProjectIndexFromChild(projectChildNode) {
 	let projectContainer = projectChildNode.closest(`.${HTML_CONSTANTS.PROJECT_CONTAINER}`);
 	return Array.prototype.indexOf.call(this.#projectsContainer.children, projectContainer);
