@@ -115,8 +115,8 @@ class TodoEventHandler {
 	this.#projectManager.removeTodo(projectIndex, todoIndex);
 	this.#htmlManager.removeTodo(projectIndex, todoIndex);
 
-	this.saveProjects();
-
+	this.#projectManager.saveProjects();
+	
 	return this;
     }
 
@@ -124,11 +124,6 @@ class TodoEventHandler {
 	let newChecklistItem = new TodoChecklistItem(checklistDescription);
 	this.#projectManager.addChecklistItem(projectIndex, todoIndex, newChecklistItem);
 	this.#htmlManager.addChecklistItem(projectIndex, todoIndex, newChecklistItem);
-    }
-
-    #saveProjects() {
-	this.#projectManager.saveProjects();	
-	return this;
     }
 }
 
