@@ -20,6 +20,7 @@ class TodoEventHandler {
 
 	let projectsContainer = this.#htmlManager.getProjectsContainer();
 	projectsContainer.addEventListener('click', this.redirectProjectsContainerClick);
+	projectsContainer.addEventListener('change', this.redirectProjectsContainerChange);
 	
 	return this;
     }
@@ -53,6 +54,15 @@ class TodoEventHandler {
 
 	// DEBUG
 	this.#win.console.log(this.#projectManager.getProjects());
+    }
+
+    redirectProjectsContainerOnChange(event) {
+	this.#win.console.log('onChange event detected');
+	switch(event.target.className) {
+	case HTML_CONSTANTS.PROJECT_NAME:
+	    this.changeProjectName(projectIndex, newName);
+	    break;
+	}
     }
 
     onAddNewProject = (event) => {
@@ -124,6 +134,16 @@ class TodoEventHandler {
 	let newChecklistItem = new TodoChecklistItem(checklistDescription);
 	this.#projectManager.addChecklistItem(projectIndex, todoIndex, newChecklistItem);
 	this.#htmlManager.addChecklistItem(projectIndex, todoIndex, newChecklistItem);
+    }
+
+    onProjectNameChange = (event) => {
+	let projectIndex = this.#htmlManager.getProjectIndexFromChild(event.target);
+	let newName = this.#htmlManager.getProjectName();
+	this.changeProjectName(projectIndex, newName);
+    }
+
+    changeProjectName(projectIndex, newName) {
+	this.#win.console.log('Attempted to change project name');
     }
 }
 
