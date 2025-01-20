@@ -141,12 +141,8 @@ class TodoEventHandler {
 
     onChangeProjectName = (event) => {
 	let projectIndex = this.#htmlManager.getProjectIndexFromChild(event.target);
-	let newName = this.#htmlManager.getProjectName();
-	this.changeProjectName(projectIndex, newName);
-    }
-
-    changeProjectName(projectIndex, newName) {
-	this.#win.console.log('Attempted to change project name');
+	let projectNameInput = event.target;
+	let newName = projectNameInput.value;
     }
 }
 
