@@ -96,7 +96,7 @@ class htmlGenerator {
 	const priorityOption = this.doc.createElement('option');
 
 	priorityOption.className = 'priority-option';
-	priorityOption.textContent = priority.name;
+	priorityOption.label = priority.name;
 	priorityOption.dataset.priorityLevel = priority.priorityLevel;
 
 	return priorityOption;
@@ -243,6 +243,7 @@ class htmlGenerator {
 	projectName.value = project.name;
 
 	projectPriority.className = HTML_CONSTANTS.PROJECT_PRIORITY_DROPDOWN;
+	projectPriority.value = project.priority.priorityLevel;
 
 	projectRemoveButton.className = HTML_CONSTANTS.PROJECT_REMOVE_BUTTON;
 	projectRemoveButton.type = 'button';
