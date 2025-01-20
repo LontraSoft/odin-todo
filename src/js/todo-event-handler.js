@@ -143,6 +143,7 @@ class TodoEventHandler {
 	let projectIndex = this.#htmlManager.getProjectIndexFromChild(event.target);
 	let projectNameInput = event.target;
 	let newName = projectNameInput.value;
+	this.#projectManager.updateProjectName(projectIndex, newName);
     }
 }
 
