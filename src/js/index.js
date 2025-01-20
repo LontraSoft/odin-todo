@@ -41,6 +41,11 @@ function saveTestingEnvironment() {
     testProject3.name = 'Test Project 3';
     testProject4.name = 'Test Project 4';
 
+    testProject1.priority = Priority.LOWEST;
+    testProject2.priority = Priority.MEDIUM;
+    testProject3.priority = Priority.HIGH;
+    testProject4.priority = Priority.HIGHEST;
+
     testProjectManager.addProject(testProject4);
     testProjectManager.addProject(testProject3);
     testProjectManager.addProject(testProject2);
