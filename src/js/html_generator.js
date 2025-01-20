@@ -243,6 +243,7 @@ class htmlGenerator {
 	projectName.value = project.name;
 
 	projectPriority.className = HTML_CONSTANTS.PROJECT_PRIORITY_DROPDOWN;
+	projectPriority.value = project.priority.priorityLevel;
 
 	projectRemoveButton.className = HTML_CONSTANTS.PROJECT_REMOVE_BUTTON;
 	projectRemoveButton.type = 'button';
