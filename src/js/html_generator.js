@@ -96,7 +96,7 @@ class htmlGenerator {
 	const priorityOption = this.doc.createElement('option');
 
 	priorityOption.className = 'priority-option';
-	priorityOption.textContent = priority.name;
+	priorityOption.label = priority.name;
 	priorityOption.dataset.priorityLevel = priority.priorityLevel;
 
 	return priorityOption;
