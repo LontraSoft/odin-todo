@@ -54,3 +54,5 @@ function loadProjects() {
     htmlManager.loadProjects(projects);
 }
 
+saveTestingEnvironment();
+loadProjects();
