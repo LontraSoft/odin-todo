@@ -57,12 +57,5 @@ function loadProjects() {
     htmlManager.loadProjects(projects);
 }
 
-function attachTemplateEvents() {
-    let addProjectButton = document.querySelector(`#${HTML_CONSTANTS.ADD_PROJECT_BUTTON_ID}`);
-
-    addProjectButton.addEventListener('click', todoEventHandler.onAddNewProject)
-}
-
-attachTemplateEvents();
 saveTestingEnvironment();
 loadProjects();

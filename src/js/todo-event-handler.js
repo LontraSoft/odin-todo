@@ -18,11 +18,17 @@ class TodoEventHandler {
 	this.#htmlManager = htmlManager;
 	this.#projectManager = projectManager;
 
-	let projectsContainer = this.#htmlManager.getProjectsContainer();
-	projectsContainer.addEventListener('click', this.redirectProjectsContainerClick);
-	projectsContainer.addEventListener('change', this.redirectProjectsContainerChange);
+	this.#attachTemplateEventListeners();
 	
 	return this;
+    }
+
+    #attachTemplateEventListeners() {
+	let addProjectButton = this.#doc.querySelector(`#${HTML_CONSTANTS.ADD_PROJECT_BUTTON_ID}`);
+	let projectsContainer = this.#htmlManager.getProjectsContainer();
+
+	addProjectButton.addEventListener('click', this.onAddNewProject)
+	projectsContainer.addEventListener('click', this.redirectProjectsContainerClick);
     }
 
     updateHtmlManager(newHtmlManager) {
