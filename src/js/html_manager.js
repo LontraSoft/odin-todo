@@ -1,6 +1,11 @@
 import * as HTML_CONSTANTS from './html_constants';
 import HtmlGenerator from './html_generator';
 
+const PROJECT_CLASSES_WITH_ON_CHANGE_EVENTS = [
+    HTML_CONSTANTS.PROJECT_NAME,
+    HTML_CONSTANTS.PROJECT_PRIORITY_DROPDOWN,
+];
+
 class htmlManager {
     #win;
     #doc;
@@ -116,21 +121,30 @@ class htmlManager {
 	return Array.prototype.indexOf.call(checklistContainer.children, checklistItemContainer);
     }
 
-    prependProject(project) {
+    #attachProjectEventListeners(projectHTML, onChangeDelegateFunction) {
+	for(const className of PROJECT_CLASSES_WITH_ON_CHANGE_EVENTS) {
+	    let targetNode = projectHTML.querySelector(`.${className}`);
+	    targetNode.addEventListener('change', onChangeDelegateFunction);
+	}
+    }
+
+    prependProject(project, onChangeDelegateFunction) {
 	let projectHTML = this.#htmlGenerator.generateProjectHTML(project);
 
+	this.#attachProjectEventListeners(projectHTML, onChangeDelegateFunction);
 	this.#projectsContainer.prepend(projectHTML);
 	return this;
     }
 
-    appendProject(project) {
+    appendProject(project, onChangeDelegateFunction) {
 	let projectHTML = this.#htmlGenerator.generateProjectHTML(project);
 
+	this.#attachProjectEventListeners(projectHTML, onChangeDelegateFunction);
 	this.#projectsContainer.appendChild(projectHTML);
 	return this;   
     }
 
-    insertProject(project, index) {
+    insertProject(project, index, onChangeDelegateFunction) {
 	if (index === 0) {
 	    this.prependProject(project);
 	    return this;
@@ -149,6 +163,8 @@ class htmlManager {
 	}
 
 	let projectInDesiredIndex = this.#projectsContainer.children[index];
+
+	this.#attachProjectEventListeners(projectHTML, onChangeDelegateFunction);
 	this.#projectsContainer.insertBefore(projectHTML, projectInDesiredIndex);
     }
 
@@ -182,10 +198,10 @@ class htmlManager {
 	targetChecklist.removeChild(targetChecklistItem);
     }
 
-    loadProjects(projectList) {
+    loadProjects(projectList, onChangeDelegateFunction) {
 	let thisHtmlHandler = this;
 	for (const project of projectList) {
-	    thisHtmlHandler.appendProject(project);
+	    thisHtmlHandler.appendProject(project, onChangeDelegateFunction);
 	}
     }
 }

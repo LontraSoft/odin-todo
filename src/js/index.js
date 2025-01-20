@@ -54,7 +54,7 @@ function loadProjects() {
 
     let projects = projectManager.getProjects();
     
-    htmlManager.loadProjects(projects);
+    htmlManager.loadProjects(projects, todoEventHandler.redirectProjectsContainerOnChange);
 }
 
 saveTestingEnvironment();
