@@ -158,6 +158,8 @@ class TodoEventHandler {
 	let newPriorityName = selectedOptionHTML.label;
 	let newPriorityLevel = selectedOptionHTML.dataset.priorityLevel;
 	let newPriority = new Priority(newPriorityName, newPriorityLevel);
+
+	this.#projectManager.updateProjectPriority(projectIndex, newPriority);
     }
 }
 
