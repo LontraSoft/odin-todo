@@ -4,9 +4,12 @@ import Project from './project';
 import {Todo, TodoChecklistItem} from './todo';
 import HtmlManager from './html_manager';
 import ProjectManager from './project_manager';
+import TodoEventHandler from './todo-event-handler';
+import * as HTML_CONSTANTS from './html_constants';
 
 let projectManager = new ProjectManager();
 let htmlManager = new HtmlManager(window, document);
+let todoEventHandler = new TodoEventHandler(window, document, htmlManager, projectManager);
 
 function createExampleProject() {
     let exampleProject = new Project('Example Project');
@@ -54,5 +57,12 @@ function loadProjects() {
     htmlManager.loadProjects(projects);
 }
 
+function attachTemplateEvents() {
+    let addProjectButton = document.querySelector(`#${HTML_CONSTANTS.ADD_PROJECT_BUTTON_ID}`);
+
+    addProjectButton.addEventListener('click', todoEventHandler.onAddNewProject)
+}
+
+attachTemplateEvents();
 saveTestingEnvironment();
 loadProjects();
