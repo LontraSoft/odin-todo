@@ -63,7 +63,7 @@ class TodoEventHandler {
 	this.#win.console.log('onChange event detected');
 	switch(event.target.className) {
 	case HTML_CONSTANTS.PROJECT_NAME:
-	    this.changeProjectName(projectIndex, newName);
+	    this.onChangeProjectName(event);
 	    break;
 	}
     }
