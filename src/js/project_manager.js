@@ -49,6 +49,12 @@ class ProjectManager {
 	return this;
     }
 
+    updateProjectPriority(projectIndex, newPriority) {
+	this.#projects[projectIndex].priority = newPriority;
+	this.saveProjects();
+	return this;
+    }
+
     addTodo(projectIndex, todo) {
 	if (!this.isProjectIndexValid(projectIndex)) {
 	    console.error(`Attempted to add to non-existant project: Id ${projectIndex}`);
