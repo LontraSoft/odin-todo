@@ -43,6 +43,12 @@ class ProjectManager {
 	return this;
     }
 
+    updateProjectName(projectIndex, newName) {
+	this.#projects[projectIndex].name = newName;
+	this.saveProjects();
+	return this;
+    }
+
     addTodo(projectIndex, todo) {
 	if (!this.isProjectIndexValid(projectIndex)) {
 	    console.error(`Attempted to add to non-existant project: Id ${projectIndex}`);
