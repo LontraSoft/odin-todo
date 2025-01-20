@@ -139,7 +139,7 @@ class TodoEventHandler {
 	this.#htmlManager.addChecklistItem(projectIndex, todoIndex, newChecklistItem);
     }
 
-    onProjectNameChange = (event) => {
+    onChangeProjectName = (event) => {
 	let projectIndex = this.#htmlManager.getProjectIndexFromChild(event.target);
 	let newName = this.#htmlManager.getProjectName();
 	this.changeProjectName(projectIndex, newName);
