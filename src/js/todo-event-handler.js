@@ -59,7 +59,7 @@ class TodoEventHandler {
 	}
     }
 
-    redirectProjectsContainerOnChange(event) {
+    redirectProjectsContainerOnChange = (event) => {
 	this.#win.console.log('onChange event detected');
 	switch(event.target.className) {
 	case HTML_CONSTANTS.PROJECT_NAME:
