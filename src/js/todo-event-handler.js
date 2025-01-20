@@ -1,4 +1,5 @@
 import {Todo, TodoChecklistItem} from './todo';
+import Priority from './priority';
 import ProjectManager from './project_manager';
 import Project from './project';
 import HtmlGenerator from './html_generator';
@@ -152,9 +153,11 @@ class TodoEventHandler {
     onChangeProjectPriority = (event) => {
 	let projectIndex = this.#htmlManager.getProjectIndexFromChild(event.target);
 	let projectPriorityInput = event.target;
-	let selectedOptionHTML = projectPriorityInput.value;
+	let selectedIndex = projectPriorityInput.selectedIndex;
+	let selectedOptionHTML = projectPriorityInput.options[selectedIndex];
 	let newPriorityName = selectedOptionHTML.label;
 	let newPriorityLevel = selectedOptionHTML.dataset.priorityLevel;
+	let newPriority = new Priority(newPriorityName, newPriorityLevel);
     }
 }
 
