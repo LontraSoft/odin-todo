@@ -86,7 +86,6 @@ class htmlGenerator {
 	}
 
 	todos.forEach((todo) => {
-	    console.log(todo);
 	    todoList.appendChild(this.generateTodo(todo));
 	});
 
