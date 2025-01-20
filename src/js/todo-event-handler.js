@@ -57,9 +57,6 @@ class TodoEventHandler {
 	    this.onRemoveProjectClick(event);
 	    break;
 	}
-
-	// DEBUG
-	this.#win.console.log(this.#projectManager.getProjects());
     }
 
     redirectProjectsContainerOnChange(event) {
