@@ -46,3 +46,11 @@ function saveTestingEnvironment() {
     testProjectManager.saveProjects();
 }
 
+function loadProjects() {
+    projectManager.loadProjects();
+
+    let projects = projectManager.getProjects();
+    
+    htmlManager.loadProjects(projects);
+}
+
