@@ -87,6 +87,12 @@ class htmlManager {
 	addChecklistItemInput.value = '';
     }
 
+    getTodoNameValue(projectIndex, todoIndex) {
+	let targetTodo = this.getTodo(projectIndex, todoIndex);
+	let targetTodoInput = targetTodo.querySelector(`.${HTML_CONSTANTS.TODO_NAME}`);
+	return targetTodoInput.value;
+    }
+    
     getTodoList(projectIndex) {
 	let sourceProject = this.getProjectContainer(projectIndex);
 	return sourceProject.querySelector(`.${HTML_CONSTANTS.TODO_LIST}`);
