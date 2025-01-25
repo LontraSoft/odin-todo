@@ -69,6 +69,9 @@ class TodoEventHandler {
 	case HTML_CONSTANTS.PROJECT_PRIORITY_DROPDOWN:
 	    this.onChangeProjectPriority(event);
 	    break;
+	case HTML_CONSTANTS.TODO_NAME:
+	    this.onChangeTodoName(event);
+	    break;
 	}
     }
 
@@ -160,6 +163,13 @@ class TodoEventHandler {
 	let newPriority = new Priority(newPriorityName, newPriorityLevel);
 
 	this.#projectManager.updateProjectPriority(projectIndex, newPriority);
+    }
+
+    onChangeTodoName = (event) => {
+	let projectIndex = this.#htmlManager.getProjectIndexFromChild(event.target);
+	let todoIndex = this.#htmlManager.getTodoIndexFromChild(event.target);
+	let newTodoName = this.#htmlManager.getTodoNameValue(projectIndex, todoIndex);
+	this.#projectManager.updateTodoName(projectIndex, todoIndex, newTodoName);
     }
 }
 
