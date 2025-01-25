@@ -6,6 +6,10 @@ const PROJECT_CLASSES_WITH_ON_CHANGE_EVENTS = [
     HTML_CONSTANTS.PROJECT_PRIORITY_DROPDOWN,
 ];
 
+const TODO_CLASSES_WITH_ON_CHANGE_EVENTS = [
+    HTML_CONSTANTS.TODO_NAME,
+];
+
 class htmlManager {
     #win;
     #doc;
@@ -121,10 +125,19 @@ class htmlManager {
 	return Array.prototype.indexOf.call(checklistContainer.children, checklistItemContainer);
     }
 
+    #getTodoHtmlList(projectHTML) {
+	return projectHTML.querySelectorAll(`.${HTML_CONSTANTS.TODO_CONTAINER}`);
+    }
+
     #attachProjectEventListeners(projectHTML, onChangeDelegateFunction) {
 	for(const className of PROJECT_CLASSES_WITH_ON_CHANGE_EVENTS) {
 	    let targetNode = projectHTML.querySelector(`.${className}`);
 	    targetNode.addEventListener('change', onChangeDelegateFunction);
+	}
+
+	let todoHtmlNodes = this.#getTodoHtmlList(projectHTML);	
+	for(const todoHTML of todoHtmlNodes) {
+	    this.#attachTodoEventListeners(todoHTML, onChangeDelegateFunction);
 	}
     }
 
@@ -173,9 +186,17 @@ class htmlManager {
 	this.#projectsContainer.removeChild(targetProject);
     }
 
-    addTodo(projectIndex, todo) {
+    #attachTodoEventListeners(todoHTML, onChangeDelegateFunction) {
+	for(const className of TODO_CLASSES_WITH_ON_CHANGE_EVENTS) {
+	    let targetNode = todoHTML.querySelector(`.${className}`);
+	    targetNode.addEventListener('change', onChangeDelegateFunction);
+	}
+    }
+
+    addTodo(projectIndex, todo, onChangeDelegateFunction) {
 	let targetTodoList = this.getTodoList(projectIndex);
 	let newTodoHTML = this.#htmlGenerator.generateTodo(todo);
+	this.#attachTodoEventListeners(newTodoHTML, onChangeDelegateFunction);
 	targetTodoList.appendChild(newTodoHTML);
     }
 

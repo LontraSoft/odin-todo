@@ -77,7 +77,7 @@ class TodoEventHandler {
 	let project = new Project(newProjectName);
 	
 	this.#projectManager.addProject(project);
-	this.#htmlManager.prependProject(project);
+	this.#htmlManager.prependProject(project, this.redirectProjectsContainerOnChange);
 
 	this.#projectManager.saveProjects();
 
@@ -121,7 +121,7 @@ class TodoEventHandler {
 	let newTodo = new Todo(todoName);
 
 	this.#projectManager.addTodo(projectIndex, newTodo);
-	this.#htmlManager.addTodo(projectIndex, newTodo);
+	this.#htmlManager.addTodo(projectIndex, newTodo, this.redirectProjectsContainerOnChange);
 
 	this.#projectManager.saveProjects();
 	
