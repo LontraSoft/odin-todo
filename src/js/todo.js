@@ -26,7 +26,7 @@ class TodoChecklistItem {
 	    console.error('Attempted to assign non-boolean value to isCompleted');
 	    return;
 	}
-	this.isCompleted = completionStatus;
+	this.#isCompleted = completionStatus;
     }
 
     toJSON() {
