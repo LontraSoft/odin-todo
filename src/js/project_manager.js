@@ -70,6 +70,11 @@ class ProjectManager {
 	targetTodo.priority = newPriority;
     }
 
+    updateTodoNotes(projectIndex, todoIndex, newNotes) {
+	let targetTodo = this.#projects[projectIndex].getTodo(todoIndex);
+	targetTodo.notes = newNotes;
+    }
+
     updateTodoDescription(projectIndex, todoIndex, newDescription) {
 	let targetTodo = this.#projects[projectIndex].getTodo(todoIndex);
 	targetTodo.description = newDescription;
