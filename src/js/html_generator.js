@@ -189,7 +189,7 @@ class htmlGenerator {
     generateTodo (todo) {
 	const todoContainer = this.doc.createElement('div');
 	const todoSidebar = this.doc.createElement('div');
-	const todoCompleteButton = this.doc.createElement('input');
+	const todoCompleteCheckbox = this.doc.createElement('input');
 	const todoContentContainer = this.doc.createElement('div');
 	const todoName = this.generateTodoName(todo.name);
 	const todoDueDate = this.generateTodoDueDate(todo.dueDate);
@@ -204,9 +204,9 @@ class htmlGenerator {
 	todoContentContainer.className = HTML_CONSTANTS.TODO_CONTENT_CONTAINER;
 
 	todoSidebar.className = HTML_CONSTANTS.TODO_SIDEBAR;
-	todoCompleteButton.className = HTML_CONSTANTS.TODO_COMPLETE_BUTTON;
-	todoCompleteButton.type = 'checkbox';
-	todoSidebar.appendChild(todoCompleteButton);
+	todoCompleteCheckbox.className = HTML_CONSTANTS.TODO_COMPLETE_CHECKBOX;
+	todoCompleteCheckbox.type = 'checkbox';
+	todoSidebar.appendChild(todoCompleteCheckbox);
 
 	todoPriority.value = todo.priority.priorityLevel;
 
