@@ -22,7 +22,7 @@ class TodoChecklistItem {
     }
 
     set isCompleted(completionStatus) {
-	if (completionStatus !== true || completionStatus !== false) {
+	if (!(completionStatus === true || completionStatus === false)) {
 	    console.error('Attempted to assign non-boolean value to isCompleted');
 	    return;
 	}
