@@ -65,6 +65,11 @@ class ProjectManager {
 	targetTodo.dueDate = newDueDate;
     }
 
+    updateTodoPriority(projectIndex, todoIndex, newPriority) {
+	let targetTodo = this.#projects[projectIndex].getTodo(todoIndex);
+	targetTodo.priority = newPriority;
+    }
+
     addTodo(projectIndex, todo) {
 	if (!this.isProjectIndexValid(projectIndex)) {
 	    console.error(`Attempted to add to non-existant project: Id ${projectIndex}`);
