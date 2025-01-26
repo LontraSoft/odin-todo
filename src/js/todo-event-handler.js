@@ -162,11 +162,7 @@ class TodoEventHandler {
     onChangeProjectPriority = (event) => {
 	let projectIndex = this.#htmlManager.getProjectIndexFromChild(event.target);
 	let projectPriorityInput = event.target;
-	let selectedIndex = projectPriorityInput.selectedIndex;
-	let selectedOptionHTML = projectPriorityInput.options[selectedIndex];
-	let newPriorityName = selectedOptionHTML.label;
-	let newPriorityLevel = selectedOptionHTML.dataset.priorityLevel;
-	let newPriority = new Priority(newPriorityName, newPriorityLevel);
+	let newPriority = this.#htmlManager.getPriorityFromPriorityHtml(projectPriorityInput);;
 
 	this.#projectManager.updateProjectPriority(projectIndex, newPriority);
     }
