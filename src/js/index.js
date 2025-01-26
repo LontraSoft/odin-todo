@@ -20,6 +20,8 @@ function createExampleProject() {
 
     exampleTodo1.addChecklistItem(exampleTodoChecklistItem1);
     exampleTodo1.addChecklistItem(exampleTodoChecklistItem2);
+
+    exampleTodo2.isCompleted = true;
     
     exampleProject.name = 'Example Project';
     exampleProject.addTodo(exampleTodo1);
