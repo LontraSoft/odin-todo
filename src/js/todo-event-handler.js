@@ -171,7 +171,7 @@ class TodoEventHandler {
     onChangeTodoName = (event) => {
 	let projectIndex = this.#htmlManager.getProjectIndexFromChild(event.target);
 	let todoIndex = this.#htmlManager.getTodoIndexFromChild(event.target);
-	let newTodoName = this.#htmlManager.getTodoNameValue(projectIndex, todoIndex);
+	let newTodoName = event.target.value;
 	this.#projectManager.updateTodoName(projectIndex, todoIndex, newTodoName);
     }
 
