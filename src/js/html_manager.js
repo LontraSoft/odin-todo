@@ -15,6 +15,11 @@ const TODO_CLASSES_WITH_ON_CHANGE_EVENTS = [
     HTML_CONSTANTS.TODO_NOTES,
 ];
 
+const CHECKLIST_ITEM_CLASSES_WITH_ON_CHANGE_EVENTS = [
+    HTML_CONSTANTS.TODO_CHECKLIST_ITEM_DESCRIPTION,
+    HTML_CONSTANTS.TODO_CHECKLIST_ITEM_CHECKBOX,
+];
+
 class htmlManager {
     #win;
     #doc;
@@ -211,10 +216,19 @@ class htmlManager {
 	this.#projectsContainer.removeChild(targetProject);
     }
 
+    #getChecklistItemHtmlList(todoHTML) {
+	return todoHTML.querySelectorAll(`.${HTML_CONSTANTS.TODO_CHECKLIST_ITEM}`);
+    }
+
     #attachTodoEventListeners(todoHTML, onChangeDelegateFunction) {
 	for(const className of TODO_CLASSES_WITH_ON_CHANGE_EVENTS) {
 	    let targetNode = todoHTML.querySelector(`.${className}`);
 	    targetNode.addEventListener('change', onChangeDelegateFunction);
+	}
+
+	let checklistItemNodes = this.#getChecklistItemHtmlList(todoHTML);	
+	for(const checklistItemHTML of checklistItemNodes) {
+	    this.#attachChecklistEventListeners(checklistItemHTML, onChangeDelegateFunction);
 	}
     }
 
@@ -231,10 +245,19 @@ class htmlManager {
 	targetTodoList.removeChild(targetTodo);
     }
 
-    addChecklistItem(projectIndex, todoIndex, todoChecklistItem) {
+    #attachChecklistEventListeners(checklistItemHtml, onChangeDelegateFunction) {
+	for(const className of CHECKLIST_ITEM_CLASSES_WITH_ON_CHANGE_EVENTS) {
+	    let targetNode = checklistItemHtml.querySelector(`.${className}`);
+	    targetNode.addEventListener('change', onChangeDelegateFunction);
+	}
+    }
+
+    addChecklistItem(projectIndex, todoIndex, todoChecklistItem, onChangeDelegateFunction) {
 	let targetTodo = this.getTodo(projectIndex, todoIndex);
 	let targetChecklist = targetTodo.querySelector(`.${HTML_CONSTANTS.TODO_CHECKLIST}`);
 	let newChecklistItemHTML = this.#htmlGenerator.generateTodoChecklistItem(todoChecklistItem);
+
+	this.#attachChecklistEventListeners(newChecklistItemHTML, onChangeDelegateFunction);
 	targetChecklist.appendChild(newChecklistItemHTML);
     }
 
