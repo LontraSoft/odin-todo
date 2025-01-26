@@ -55,6 +55,11 @@ class ProjectManager {
 	return this;
     }
 
+    updateTodoCompletion(projectIndex, todoIndex, isTodoComplete) {
+	let targetTodo = this.#projects[projectIndex].getTodo(todoIndex);
+	targetTodo.isCompleted = isTodoComplete;
+    }
+
     updateTodoName(projectIndex, todoIndex, newTodoName) {
 	let targetTodo = this.#projects[projectIndex].getTodo(todoIndex);
 	targetTodo.name = newTodoName;
