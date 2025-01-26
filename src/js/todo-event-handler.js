@@ -72,6 +72,9 @@ class TodoEventHandler {
 	case HTML_CONSTANTS.TODO_NAME:
 	    this.onChangeTodoName(event);
 	    break;
+	case HTML_CONSTANTS.TODO_DUE_DATE:
+	    this.onChangeTodoDueDate(event);
+	    break;
 	}
     }
 
@@ -170,6 +173,14 @@ class TodoEventHandler {
 	let todoIndex = this.#htmlManager.getTodoIndexFromChild(event.target);
 	let newTodoName = this.#htmlManager.getTodoNameValue(projectIndex, todoIndex);
 	this.#projectManager.updateTodoName(projectIndex, todoIndex, newTodoName);
+    }
+
+    onChangeTodoDueDate = (event) => {
+	let projectIndex = this.#htmlManager.getProjectIndexFromChild(event.target);
+	let todoIndex = this.#htmlManager.getTodoIndexFromChild(event.target);
+	let newTodoDate = new Date(event.target.value);
+	
+	this.#projectManager.updateTodoDueDate(projectIndex, todoIndex, newTodoDate);
     }
 }
 
