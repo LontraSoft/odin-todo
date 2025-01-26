@@ -1,5 +1,6 @@
 import * as HTML_CONSTANTS from './html_constants';
 import HtmlGenerator from './html_generator';
+import Priority from './priority';
 
 const PROJECT_CLASSES_WITH_ON_CHANGE_EVENTS = [
     HTML_CONSTANTS.PROJECT_NAME,
@@ -72,6 +73,14 @@ class htmlManager {
     clearAddTodoValue(projectIndex) {
 	let addTodoInput = this.#getAddTodoInput(projectIndex);
 	addTodoInput.value = '';
+    }
+
+    getPriorityFromPriorityHtml(prioritySelectHtml) {
+	let selectedIndex = prioritySelectHtml.selectedIndex;
+	let selectedOptionHTML = prioritySelectHtml.options[selectedIndex];
+	let newPriorityName = selectedOptionHTML.label;
+	let newPriorityLevel = selectedOptionHTML.dataset.priorityLevel;
+	return new Priority(newPriorityName, newPriorityLevel);
     }
 
     #getAddChecklistItemInput(projectIndex, todoIndex) {
