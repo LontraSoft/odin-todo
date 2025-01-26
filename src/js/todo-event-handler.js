@@ -81,6 +81,9 @@ class TodoEventHandler {
 	case HTML_CONSTANTS.TODO_DESCRIPTION:
 	    this.onChangeTodoDescription(event);
 	    break;
+	case HTML_CONSTANTS.TODO_NOTES:
+	    this.onChangeTodoNotes(event);
+	    break;
 	}
     }
 
@@ -199,6 +202,13 @@ class TodoEventHandler {
 	let todoIndex = this.#htmlManager.getTodoIndexFromChild(event.target);
 	let newDescription = event.target.value;
 	this.#projectManager.updateTodoDescription(projectIndex, todoIndex, newDescription);
+    }
+
+    onChangeTodoNotes = (event) => {
+	let projectIndex = this.#htmlManager.getProjectIndexFromChild(event.target);
+	let todoIndex = this.#htmlManager.getTodoIndexFromChild(event.target);
+	let newNotes = event.target.value;
+	this.#projectManager.updateTodoNotes(projectIndex, todoIndex, newNotes);
     }
 }
 
