@@ -75,6 +75,9 @@ class TodoEventHandler {
 	case HTML_CONSTANTS.TODO_DUE_DATE:
 	    this.onChangeTodoDueDate(event);
 	    break;
+	case HTML_CONSTANTS.PRIORITY_DROPDOWN:
+	    this.onChangeTodoPriority(event);
+	    break;
 	}
     }
 
@@ -181,6 +184,15 @@ class TodoEventHandler {
 	let newTodoDate = new Date(event.target.value);
 	
 	this.#projectManager.updateTodoDueDate(projectIndex, todoIndex, newTodoDate);
+    }
+
+    onChangeTodoPriority = (event) => {
+	let projectIndex = this.#htmlManager.getProjectIndexFromChild(event.target);
+	let todoIndex = this.#htmlManager.getTodoIndexFromChild(event.target);
+	let todoPriorityInput = event.target;
+	let newPriority = this.#htmlManager.getPriorityFromPriorityHtml(todoPriorityInput);
+	
+	this.#projectManager.updateTodoPriority(projectIndex, todoIndex, newPriority);
     }
 }
 
