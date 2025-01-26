@@ -84,6 +84,10 @@ class TodoEventHandler {
 	case HTML_CONSTANTS.TODO_NOTES:
 	    this.onChangeTodoNotes(event);
 	    break;
+
+	case HTML_CONSTANTS.TODO_CHECKLIST_ITEM_DESCRIPTION:
+	    this.onChangeChecklistItemDescription(event);
+	    break;
 	}
     }
 
@@ -209,6 +213,15 @@ class TodoEventHandler {
 	let todoIndex = this.#htmlManager.getTodoIndexFromChild(event.target);
 	let newNotes = event.target.value;
 	this.#projectManager.updateTodoNotes(projectIndex, todoIndex, newNotes);
+    }
+
+    onChangeChecklistItemDescription = (event) => {
+	let projectIndex = this.#htmlManager.getProjectIndexFromChild(event.target);
+	let todoIndex = this.#htmlManager.getTodoIndexFromChild(event.target);
+	let checklistItemIndex = this.#htmlManager.getChecklistIndexFromChild(event.target);
+	let newDescription = event.target.value;
+
+	this.#projectManager.updateChecklistItemDescription(projectIndex, todoIndex, checklistItemIndex, newDescription);
     }
 }
 
