@@ -93,6 +93,12 @@ class htmlManager {
 	let targetTodoInput = targetTodo.querySelector(`.${HTML_CONSTANTS.TODO_NAME}`);
 	return targetTodoInput.value;
     }
+
+    getTodoDueDate(projectIndex, todoIndex) {
+	let targetTodo = this.getTodo(projectIndex, todoIndex);
+	let targetDueDateInput = targetTodo.querySelector(`.${HTML_CONSTANTS.TODO_DUE_DATE}`);
+	return targetDueDateInput.value;
+    }
     
     getTodoList(projectIndex) {
 	let sourceProject = this.getProjectContainer(projectIndex);
