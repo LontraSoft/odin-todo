@@ -89,6 +89,9 @@ class TodoEventHandler {
 	case HTML_CONSTANTS.TODO_CHECKLIST_ITEM_DESCRIPTION:
 	    this.onChangeChecklistItemDescription(event);
 	    break;
+	case HTML_CONSTANTS.TODO_CHECKLIST_ITEM_CHECKBOX:
+	    this.onChangeChecklistItemCheckbox(event);
+	    break;
 	}
     }
 
@@ -223,6 +226,17 @@ class TodoEventHandler {
 	let newDescription = event.target.value;
 
 	this.#projectManager.updateChecklistItemDescription(projectIndex, todoIndex, checklistItemIndex, newDescription);
+    }
+
+    onChangeChecklistItemCheckbox = (event) => {
+	let projectIndex = this.#htmlManager.getProjectIndexFromChild(event.target);
+	let todoIndex = this.#htmlManager.getTodoIndexFromChild(event.target);
+	let checklistItemIndex = this.#htmlManager.getChecklistIndexFromChild(event.target);
+	let completionStatus = event.target.checked;
+
+	console.log(typeof completionStatus);
+
+	this.#projectManager.updateChecklistItemCompletion(projectIndex, todoIndex, checklistItemIndex, completionStatus);
     }
 }
 
