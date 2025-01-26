@@ -80,6 +80,12 @@ class ProjectManager {
 	targetTodo.description = newDescription;
     }
 
+    updateChecklistItemDescription(projectIndex, todoIndex, checklistItemIndex, newDescription) {
+	let targetTodo = this.#projects[projectIndex].getTodo(todoIndex);
+	let targetChecklistItem = targetTodo.getChecklistItem(checklistItemIndex);
+	targetChecklistItem.description = newDescription;
+    }
+
     addTodo(projectIndex, todo) {
 	if (!this.isProjectIndexValid(projectIndex)) {
 	    console.error(`Attempted to add to non-existant project: Id ${projectIndex}`);
