@@ -69,7 +69,10 @@ class TodoEventHandler {
 	case HTML_CONSTANTS.PROJECT_PRIORITY_DROPDOWN:
 	    this.onChangeProjectPriority(event);
 	    break;
-	    
+
+	case HTML_CONSTANTS.TODO_COMPLETE_CHECKBOX:
+	    this.onChangeTodoCompleteCheckbox(event);
+	    break;
 	case HTML_CONSTANTS.TODO_NAME:
 	    this.onChangeTodoName(event);
 	    break;
@@ -179,6 +182,14 @@ class TodoEventHandler {
 	let newPriority = this.#htmlManager.getPriorityFromPriorityHtml(projectPriorityInput);;
 
 	this.#projectManager.updateProjectPriority(projectIndex, newPriority);
+    }
+
+    onChangeTodoCompleteCheckbox = (event) => {
+	let projectIndex = this.#htmlManager.getProjectIndexFromChild(event.target);
+	let todoIndex = this.#htmlManager.getTodoIndexFromChild(event.target);
+	let isTodoComplete = event.target.checked;
+
+	this.#projectManager.updateTodoCompletion(projectIndex, todoIndex, isTodoComplete);
     }
 
     onChangeTodoName = (event) => {
