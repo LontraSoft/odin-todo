@@ -60,6 +60,11 @@ class ProjectManager {
 	targetTodo.name = newTodoName;
     }
 
+    updateTodoDueDate(projectIndex, todoIndex, newDueDate) {
+	let targetTodo = this.#projects[projectIndex].getTodo(todoIndex);
+	targetTodo.dueDate = newDueDate;
+    }
+
     addTodo(projectIndex, todo) {
 	if (!this.isProjectIndexValid(projectIndex)) {
 	    console.error(`Attempted to add to non-existant project: Id ${projectIndex}`);
