@@ -69,6 +69,7 @@ class TodoEventHandler {
 	case HTML_CONSTANTS.PROJECT_PRIORITY_DROPDOWN:
 	    this.onChangeProjectPriority(event);
 	    break;
+	    
 	case HTML_CONSTANTS.TODO_NAME:
 	    this.onChangeTodoName(event);
 	    break;
