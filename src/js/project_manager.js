@@ -213,7 +213,8 @@ class ProjectManager {
 	let todoPriorityLevel = todoData.priority.priorityLevel;
 	let todoPriority = new Priority(todoPriorityName, todoPriorityLevel);
 	let todoNotes = todoData.notes;
-	let todo = new Todo(todoName, todoDescription, todoDueDate, todoPriority, todoNotes);
+	let isTodoCompleted = todoData.isCompleted;
+	let todo = new Todo(todoName, todoDescription, todoDueDate, todoPriority, todoNotes, isTodoCompleted);
 	
 	for (const checklistItemData of todoData.checklist) {
 	    let checklistItemDescription = checklistItemData.description;

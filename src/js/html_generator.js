@@ -206,6 +206,7 @@ class htmlGenerator {
 	todoSidebar.className = HTML_CONSTANTS.TODO_SIDEBAR;
 	todoCompleteCheckbox.className = HTML_CONSTANTS.TODO_COMPLETE_CHECKBOX;
 	todoCompleteCheckbox.type = 'checkbox';
+	todoCompleteCheckbox.checked = todo.isCompleted;
 	todoSidebar.appendChild(todoCompleteCheckbox);
 
 	todoPriority.value = todo.priority.priorityLevel;

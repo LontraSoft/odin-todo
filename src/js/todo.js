@@ -41,6 +41,7 @@ class Todo {
     #priority;
     #notes;
     #checklist;
+    #isCompleted;
 
     #generateTomorrowDate() {
 	let date = new Date();
@@ -52,7 +53,8 @@ class Todo {
 		description = "",
 		dueDate = this.#generateTomorrowDate(),
 		priority = Priority.MEDIUM,
-		notes = "")
+		notes = "",
+	        isCompleted = false)
     {
 	this.#name = name;
 	this.#description = description;
@@ -60,6 +62,7 @@ class Todo {
 	this.#priority = priority;
 	this.#notes = notes;
 	this.#checklist = [];
+	this.#isCompleted = isCompleted;
     }
 
     get name() { return this.#name; }
@@ -85,6 +88,9 @@ class Todo {
     get checklist() {
 	return this.#checklist;
     }
+
+    get isCompleted() { return this.#isCompleted; }
+    set isCompleted(isCompleted) { this.#isCompleted = isCompleted; }
 
     hasChecklist() {
 	return !this.#checklist.isEmpty();
@@ -115,6 +121,7 @@ class Todo {
 	    priority: this.#priority,
 	    notes: this.#notes,
 	    checklist: this.#checklist,
+	    isCompleted: this.#isCompleted,
 	};
     }
 }
