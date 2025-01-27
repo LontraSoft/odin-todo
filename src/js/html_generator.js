@@ -191,9 +191,11 @@ class htmlGenerator {
 	const todoSidebar = this.doc.createElement('div');
 	const todoCompleteCheckbox = this.doc.createElement('input');
 	const todoContentContainer = this.doc.createElement('div');
+	const todoContentHeader = this.doc.createElement('div');
 	const todoName = this.generateTodoName(todo.name);
 	const todoDueDate = this.generateTodoDueDate(todo.dueDate);
 	const todoPriority = this.generatePriorityDropdown();
+	const todoContentBody = this.doc.createElement('div');
 	const todoDescription = this.generateTodoDescription(todo.description);
 	const todoNotes = this.generateTodoNotes();
 	const todoChecklist = this.generateTodoChecklist(todo.checklist);
@@ -209,20 +211,27 @@ class htmlGenerator {
 	todoCompleteCheckbox.checked = todo.isCompleted;
 	todoSidebar.appendChild(todoCompleteCheckbox);
 
+	todoContentHeader.className = HTML_CONSTANTS.TODO_CONTENT_HEADER;
+	todoContentBody.className = HTML_CONSTANTS.TODO_CONTENT_BODY;
+
 	todoPriority.value = todo.priority.priorityLevel;
 
 	todoRemoveButton.className = HTML_CONSTANTS.TODO_REMOVE_BUTTON;
 	todoRemoveButton.textContent = 'Remove';
+	
+	todoContentHeader.appendChild(todoName);
+	todoContentHeader.appendChild(todoDueDate);
+	todoContentHeader.appendChild(todoPriority);
+	
+	todoContentBody.appendChild(todoDescription);
+	todoContentBody.appendChild(todoNotes);
+	todoContentBody.appendChild(todoChecklist);
+	todoContentBody.appendChild(addChecklistItemHTML);
+	todoContentBody.appendChild(todoRemoveButton);
 
-	todoContentContainer.appendChild(todoName);
-	todoContentContainer.appendChild(todoDueDate);
-	todoContentContainer.appendChild(todoPriority);
-	todoContentContainer.appendChild(todoDescription);
-	todoContentContainer.appendChild(todoNotes);
-	todoContentContainer.appendChild(todoChecklist);
-	todoContentContainer.appendChild(addChecklistItemHTML);
-	todoContentContainer.appendChild(todoRemoveButton);
-
+	todoContentContainer.appendChild(todoContentHeader);
+	todoContentContainer.appendChild(todoContentBody);
+	
 	todoContainer.appendChild(todoSidebar);
 	todoContainer.appendChild(todoContentContainer);
 
