@@ -3,6 +3,8 @@ export const ADD_PROJECT_BUTTON_ID = 'add-project-button';
 
 export const PROJECTS_CONTAINER = 'projects-container';
 export const PROJECT_CONTAINER = 'project-container';
+export const PROJECT_HEADER = 'project-header';
+export const PROJECT_BODY = 'project-body';
 export const PROJECT_NAME = 'project-name';
 export const PROJECT_PRIORITY_DROPDOWN = 'project-priority-dropdown';
 export const PROJECT_REMOVE_BUTTON = 'project-remove-button';
