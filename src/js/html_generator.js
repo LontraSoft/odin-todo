@@ -231,13 +231,17 @@ class htmlGenerator {
 
     generateProjectHTML (project) {
 	const projectContainer = this.doc.createElement('div');
+	const projectHeader = this.doc.createElement('div');
 	const projectName = this.doc.createElement('input');
 	const projectPriority = this.generatePriorityDropdown();
 	const projectRemoveButton = this.doc.createElement('button');
 	const addTodoContainer = this.generateAddTodo();
+	const projectBody = this.doc.createElement('div');
 	const todoList = this.generateTodoList(project.todoList);
 
 	projectContainer.className = HTML_CONSTANTS.PROJECT_CONTAINER;
+	projectHeader.className = HTML_CONSTANTS.PROJECT_HEADER;
+	projectBody.className = HTML_CONSTANTS.PROJECT_BODY;
 
 	projectName.className = HTML_CONSTANTS.PROJECT_NAME;
 	projectName.type = 'text';
@@ -249,12 +253,16 @@ class htmlGenerator {
 	projectRemoveButton.className = HTML_CONSTANTS.PROJECT_REMOVE_BUTTON;
 	projectRemoveButton.type = 'button';
 
-	projectContainer.appendChild(projectName);
-	projectContainer.appendChild(projectPriority);
-	projectContainer.appendChild(projectRemoveButton);
-	projectContainer.appendChild(todoList);
-	projectContainer.appendChild(addTodoContainer);
+	projectHeader.appendChild(projectName);
+	projectHeader.appendChild(projectPriority);
+	projectHeader.appendChild(projectRemoveButton);
 
+	projectBody.appendChild(addTodoContainer);
+	projectBody.appendChild(todoList);
+
+	projectContainer.appendChild(projectHeader);
+	projectContainer.appendChild(projectBody);
+	
 	return projectContainer;
     }
 }
