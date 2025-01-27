@@ -3,6 +3,14 @@ import Project from './project';
 import Priority from './priority';
 import * as HTML_CONSTANTS from './html_constants';
 
+const PROJECT_NAME_PLACEHOLDER_TEXT = 'Project name...';
+const ADD_TODO_PLACEHOLDER_TEXT = 'Add todo...';
+const TODO_NAME_PLACEHOLDER_TEXT = 'Todo name...';
+const TODO_DESCRIPTION_PLACEHOLDER_TEXT = 'Todo description...';
+const TODO_NOTES_PLACEHOLDER_TEXT = 'Todo notes...';
+const CHECKLIST_ITEM_DESCRIPTION_PLACEHOLDER_TEXT = 'Checklist item...';
+const ADD_CHECKLIST_ITEM_PLACEHOLDER_TEXT = 'Add checklist item...';
+
 class htmlGenerator {
     win;
     doc;
@@ -30,6 +38,7 @@ class htmlGenerator {
 	checklistItemDescription.className = HTML_CONSTANTS.TODO_CHECKLIST_ITEM_DESCRIPTION;
 	checklistItemDescription.type = 'text';
 	checklistItemDescription.value = todoChecklistItem.description;
+	checklistItemDescription.placeholder = CHECKLIST_ITEM_DESCRIPTION_PLACEHOLDER_TEXT;
 	
 	checklistItemCheckbox.className = HTML_CONSTANTS.TODO_CHECKLIST_ITEM_CHECKBOX;
 	checklistItemCheckbox.type = 'checkbox';
@@ -66,6 +75,7 @@ class htmlGenerator {
 
 	addChecklistItemInput.className = HTML_CONSTANTS.ADD_CHECKLIST_ITEM_INPUT;
 	addChecklistItemInput.type = 'text';
+	addChecklistItemInput.placeholder = ADD_CHECKLIST_ITEM_PLACEHOLDER_TEXT;
 
 	addChecklistItemButton.className = HTML_CONSTANTS.ADD_CHECKLIST_ITEM_BUTTON;
 	addChecklistItemButton.type = 'button';
@@ -132,6 +142,7 @@ class htmlGenerator {
 
 	todoName.className = HTML_CONSTANTS.TODO_NAME;
 	todoName.type = 'text';
+	todoName.placeholder = TODO_NAME_PLACEHOLDER_TEXT;
 	todoName.value = name;
 
 	return todoName;
@@ -142,6 +153,7 @@ class htmlGenerator {
 
 	todoDescription.className = HTML_CONSTANTS.TODO_DESCRIPTION;
 	todoDescription.type = 'text';
+	todoDescription.placeholder = TODO_DESCRIPTION_PLACEHOLDER_TEXT;
 	todoDescription.textContent = description;
 
 	return todoDescription;
@@ -162,6 +174,7 @@ class htmlGenerator {
 
 	todoNotes.className = HTML_CONSTANTS.TODO_NOTES;
 	todoNotes.textContent = notes;
+	todoNotes.placeholder = TODO_NOTES_PLACEHOLDER_TEXT;
 
 	return todoNotes;
     }
@@ -175,6 +188,7 @@ class htmlGenerator {
 	
 	addTodoInput.className = HTML_CONSTANTS.ADD_TODO_INPUT;
 	addTodoInput.type = 'text';
+	addTodoInput.placeholder = ADD_TODO_PLACEHOLDER_TEXT;
 
 	addTodoButton.className = HTML_CONSTANTS.ADD_TODO_BUTTON;
 	addTodoButton.type = 'button';
@@ -255,6 +269,7 @@ class htmlGenerator {
 	projectName.className = HTML_CONSTANTS.PROJECT_NAME;
 	projectName.type = 'text';
 	projectName.value = project.name;
+	projectName.placeholder = PROJECT_NAME_PLACEHOLDER_TEXT;
 
 	projectPriority.className = HTML_CONSTANTS.PROJECT_PRIORITY_DROPDOWN;
 	projectPriority.value = project.priority.priorityLevel;
