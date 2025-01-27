@@ -1,0 +1,23 @@
+profile-user.png
+<a href="https://www.flaticon.com/free-icons/user" title="user icons">User icons created by Freepik - Flaticon</a>
+
+trash-can.png
+<a href="https://www.flaticon.com/free-icons/trash-can" title="trash can icons">Trash can icons created by Freepik - Flaticon</a>
+
+drag.png
+<a href="https://www.flaticon.com/free-icons/drag-and-drop" title="drag and drop icons">Drag and drop icons created by Radhe Icon - Flaticon</a>
+
+plus.png
+<a href="https://www.flaticon.com/free-icons/add" title="add icons">Add icons created by Pixel perfect - Flaticon</a>
+
+search.png
+<a href="https://www.flaticon.com/free-icons/search" title="search icons">Search icons created by Royyan Wijaya - Flaticon</a>
+
+dummy.png
+<a href="https://www.flaticon.com/free-icons/crash" title="crash icons">Crash icons created by Freepik - Flaticon</a>
+
+tick-mark.png
+<a href="https://www.flaticon.com/free-icons/check-mark" title="check mark icons">Check mark icons created by Maxim Basinski Premium - Flaticon</a>
+
+down.png
+<a href="https://www.flaticon.com/free-icons/drop-down-list" title="drop down list icons">Drop down list icons created by Anas Mannaa - Flaticon</a>
