@@ -6,11 +6,11 @@ export const PROJECT_CONTAINER = 'project-container';
 export const PROJECT_NAME = 'project-name';
 export const PROJECT_PRIORITY_DROPDOWN = 'project-priority-dropdown';
 export const PROJECT_REMOVE_BUTTON = 'project-remove-button';
-
 export const ADD_TODO_CONTAINER = 'add-todo-container';
 export const ADD_TODO_INPUT = 'add-todo-input';
 export const ADD_TODO_BUTTON = 'add-todo-button';
 export const TODO_LIST = 'todo-list';
+
 export const TODO_CONTAINER = 'todo-container';
 export const TODO_SIDEBAR = 'todo-sidebar';
 export const TODO_COMPLETE_CHECKBOX = 'todo-complete-checkbox';
