@@ -181,20 +181,20 @@ class htmlGenerator {
 
     generateAddTodo() {
 	const addTodoContainer = this.doc.createElement('section');
-	const addTodoInput = this.doc.createElement('input');
 	const addTodoButton = this.doc.createElement('button');
+	const addTodoInput = this.doc.createElement('input');
 
 	addTodoContainer.className = HTML_CONSTANTS.ADD_TODO_CONTAINER;
 	
+	addTodoButton.className = HTML_CONSTANTS.ADD_TODO_BUTTON;
+	addTodoButton.type = 'button';
+
 	addTodoInput.className = HTML_CONSTANTS.ADD_TODO_INPUT;
 	addTodoInput.type = 'text';
 	addTodoInput.placeholder = ADD_TODO_PLACEHOLDER_TEXT;
 
-	addTodoButton.className = HTML_CONSTANTS.ADD_TODO_BUTTON;
-	addTodoButton.type = 'button';
-
-	addTodoContainer.appendChild(addTodoInput);
 	addTodoContainer.appendChild(addTodoButton);
+	addTodoContainer.appendChild(addTodoInput);
 
 	return addTodoContainer;
     }
