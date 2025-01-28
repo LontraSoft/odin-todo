@@ -235,7 +235,6 @@ class htmlGenerator {
 	todoPriority.value = todo.priority.priorityLevel;
 
 	todoRemoveButton.className = HTML_CONSTANTS.TODO_REMOVE_BUTTON;
-	todoRemoveButton.textContent = 'Remove';
 	
 	todoContentHeader.appendChild(todoName);
 	todoContentHeader.appendChild(todoDueDate);
