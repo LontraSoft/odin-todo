@@ -68,8 +68,8 @@ class htmlGenerator {
 
     generateAddChecklistItem() {
 	const addChecklistItemContainer = this.doc.createElement('section');
-	const addChecklistItemInput = this.doc.createElement('input');
 	const addChecklistItemButton = this.doc.createElement('button');
+	const addChecklistItemInput = this.doc.createElement('input');
 
 	addChecklistItemContainer.className = HTML_CONSTANTS.ADD_CHECKLIST_ITEM_CONTAINER;
 
@@ -80,8 +80,8 @@ class htmlGenerator {
 	addChecklistItemButton.className = HTML_CONSTANTS.ADD_CHECKLIST_ITEM_BUTTON;
 	addChecklistItemButton.type = 'button';
 
-	addChecklistItemContainer.appendChild(addChecklistItemInput);
 	addChecklistItemContainer.appendChild(addChecklistItemButton);
+	addChecklistItemContainer.appendChild(addChecklistItemInput);
 
 	return addChecklistItemContainer;
     }
