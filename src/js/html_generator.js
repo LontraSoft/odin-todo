@@ -209,6 +209,7 @@ class htmlGenerator {
 	const todoName = this.generateTodoName(todo.name);
 	const todoDueDate = this.generateTodoDueDate(todo.dueDate);
 	const todoPriority = this.generatePriorityDropdown();
+	const todoExpandButton = this.doc.createElement('button');
 	const todoContentBody = this.doc.createElement('div');
 	const todoDescription = this.generateTodoDescription(todo.description);
 	const todoNotes = this.generateTodoNotes();
@@ -227,6 +228,9 @@ class htmlGenerator {
 
 	todoContentHeader.className = HTML_CONSTANTS.TODO_CONTENT_HEADER;
 	todoContentBody.className = HTML_CONSTANTS.TODO_CONTENT_BODY;
+
+	todoExpandButton.className = HTML_CONSTANTS.TODO_EXPAND_BUTTON;
+	todoExpandButton.type = 'button';
 
 	todoPriority.value = todo.priority.priorityLevel;
 
@@ -249,6 +253,8 @@ class htmlGenerator {
 	todoContainer.appendChild(todoSidebar);
 	todoContainer.appendChild(todoContentContainer);
 
+	todoContainer.appendChild(todoExpandButton);
+	
 	return todoContainer;
     }
 

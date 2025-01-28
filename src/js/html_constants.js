@@ -21,6 +21,7 @@ export const TODO_CONTENT_HEADER = 'todo-content-header';
 export const TODO_NAME = 'todo-name';
 export const TODO_DESCRIPTION = 'todo-description';
 export const TODO_DUE_DATE = 'todo-due-date';
+export const TODO_EXPAND_BUTTON = 'todo-expand-button';
 export const TODO_CONTENT_BODY = 'todo-content-body';
 export const TODO_NOTES = 'todo-notes';
 export const TODO_CHECKLIST = 'todo-checklist';
