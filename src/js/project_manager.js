@@ -58,43 +58,59 @@ class ProjectManager {
     updateTodoCompletion(projectIndex, todoIndex, isTodoComplete) {
 	let targetTodo = this.#projects[projectIndex].getTodo(todoIndex);
 	targetTodo.isCompleted = isTodoComplete;
+	this.saveProjects();
+	return this;
     }
 
     updateTodoName(projectIndex, todoIndex, newTodoName) {
 	let targetTodo = this.#projects[projectIndex].getTodo(todoIndex);
 	targetTodo.name = newTodoName;
+	this.saveProjects();
+	return this;
     }
 
     updateTodoDueDate(projectIndex, todoIndex, newDueDate) {
 	let targetTodo = this.#projects[projectIndex].getTodo(todoIndex);
 	targetTodo.dueDate = newDueDate;
+	this.saveProjects();
+	return this;
     }
 
     updateTodoPriority(projectIndex, todoIndex, newPriority) {
 	let targetTodo = this.#projects[projectIndex].getTodo(todoIndex);
 	targetTodo.priority = newPriority;
+	this.saveProjects();
+	return this;
     }
 
     updateTodoNotes(projectIndex, todoIndex, newNotes) {
 	let targetTodo = this.#projects[projectIndex].getTodo(todoIndex);
 	targetTodo.notes = newNotes;
+	this.saveProjects();
+	return this;
     }
 
     updateTodoDescription(projectIndex, todoIndex, newDescription) {
 	let targetTodo = this.#projects[projectIndex].getTodo(todoIndex);
 	targetTodo.description = newDescription;
+	this.saveProjects();
+	return this;
     }
 
     updateChecklistItemDescription(projectIndex, todoIndex, checklistItemIndex, newDescription) {
 	let targetTodo = this.#projects[projectIndex].getTodo(todoIndex);
 	let targetChecklistItem = targetTodo.getChecklistItem(checklistItemIndex);
 	targetChecklistItem.description = newDescription;
+	this.saveProjects();
+	return this;
     }
 
     updateChecklistItemCompletion(projectIndex, todoIndex, checklistItemIndex, isCompleted) {
 	let targetTodo = this.#projects[projectIndex].getTodo(todoIndex);
 	let targetChecklistItem = targetTodo.getChecklistItem(checklistItemIndex);
 	targetChecklistItem.isCompleted = isCompleted;
+	this.saveProjects();
+	return this;
     }
 
     addTodo(projectIndex, todo) {
