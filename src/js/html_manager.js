@@ -289,6 +289,7 @@ class htmlManager {
 
 	targetTodoBody.classList.add(HTML_CONSTANTS.TODO_CONTENT_BODY_EXPANDED);
 	targetExpandButton.classList.add(HTML_CONSTANTS.TODO_EXPAND_BUTTON_FLIPPED);
+    }
 }
 
 export default htmlManager;
