@@ -56,13 +56,11 @@ function saveTestingEnvironment() {
     testProjectManager.saveProjects();
 }
 
-function loadProjects() {
-    projectManager.loadProjects();
-
-    let projects = projectManager.getProjects();
-    
-    htmlManager.loadProjects(projects, todoEventHandler.redirectProjectsContainerOnChange);
+projectManager.loadProjects();
+if (projectManager.isProjectsEmpty()) {
+    projectManager.addProject(createExampleProject());
 }
 
-saveTestingEnvironment();
-loadProjects();
+let projects = projectManager.getProjects();
+    
+htmlManager.loadProjects(projects, todoEventHandler.redirectProjectsContainerOnChange);
