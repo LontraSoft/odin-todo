@@ -173,7 +173,7 @@ class htmlGenerator {
 	const todoNotes = this.doc.createElement('textarea');	
 
 	todoNotes.className = HTML_CONSTANTS.TODO_NOTES;
-	todoNotes.textContent = notes;
+	todoNotes.value = notes;
 	todoNotes.placeholder = TODO_NOTES_PLACEHOLDER_TEXT;
 
 	return todoNotes;
@@ -213,7 +213,7 @@ class htmlGenerator {
 	const todoExpandButton = this.doc.createElement('button');
 	const todoContentBody = this.doc.createElement('div');
 	const todoDescription = this.generateTodoDescription(todo.description);
-	const todoNotes = this.generateTodoNotes();
+	const todoNotes = this.generateTodoNotes(todo.notes);
 	const todoChecklist = this.generateTodoChecklist(todo.checklist);
 	const addChecklistItemHTML = this.generateAddChecklistItem();
 
