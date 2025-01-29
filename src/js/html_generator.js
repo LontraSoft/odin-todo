@@ -154,7 +154,7 @@ class htmlGenerator {
 	todoDescription.className = HTML_CONSTANTS.TODO_DESCRIPTION;
 	todoDescription.type = 'text';
 	todoDescription.placeholder = TODO_DESCRIPTION_PLACEHOLDER_TEXT;
-	todoDescription.textContent = description;
+	todoDescription.value = description;
 
 	return todoDescription;
     }
