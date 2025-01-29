@@ -41,22 +41,27 @@ class TodoEventHandler {
     }
 
     redirectProjectsContainerClick = (event) => {
-	switch(event.target.className) {
-	case HTML_CONSTANTS.ADD_TODO_BUTTON:
-	    this.onAddTodoClick(event);
-	    break;
-	case HTML_CONSTANTS.ADD_CHECKLIST_ITEM_BUTTON:
-	    this.onAddChecklistItemClick(event);
-	    break;
-	case HTML_CONSTANTS.TODO_REMOVE_BUTTON:
-	    this.onRemoveTodoClick(event);
-	    break;
-	case HTML_CONSTANTS.TODO_CHECKLIST_ITEM_REMOVE_BUTTON:
-	    this.onRemoveChecklistItemClick(event);
-	    break;
-	case HTML_CONSTANTS.PROJECT_REMOVE_BUTTON:
-	    this.onRemoveProjectClick(event);
-	    break;
+	for(const className of event.target.classList) {
+	    switch(className) {
+	    case HTML_CONSTANTS.ADD_TODO_BUTTON:
+		this.onAddTodoClick(event);
+		break;
+	    case HTML_CONSTANTS.ADD_CHECKLIST_ITEM_BUTTON:
+		this.onAddChecklistItemClick(event);
+		break;
+	    case HTML_CONSTANTS.TODO_REMOVE_BUTTON:
+		this.onRemoveTodoClick(event);
+		break;
+	    case HTML_CONSTANTS.TODO_CHECKLIST_ITEM_REMOVE_BUTTON:
+		this.onRemoveChecklistItemClick(event);
+		break;
+	    case HTML_CONSTANTS.PROJECT_REMOVE_BUTTON:
+		this.onRemoveProjectClick(event);
+		break;
+	    case HTML_CONSTANTS.TODO_EXPAND_BUTTON:
+		this.onTodoExpandClick(event);
+		break;
+	    }
 	}
     }
 
@@ -96,6 +101,12 @@ class TodoEventHandler {
 	    this.onChangeChecklistItemCheckbox(event);
 	    break;
 	}
+    }
+
+    onTodoExpandClick = (event) => {
+	let projectIndex = this.#htmlManager.getProjectIndexFromChild(event.target);
+	let todoIndex = this.#htmlManager.getTodoIndexFromChild(event.target);
+	this.#htmlManager.toggleTodoExpansion(projectIndex, todoIndex);
     }
 
     onAddNewProject = (event) => {

@@ -274,6 +274,21 @@ class htmlManager {
 	    thisHtmlHandler.appendProject(project, onChangeDelegateFunction);
 	}
     }
+
+    toggleTodoExpansion(projectIndex, todoIndex) {
+	let todoHTML = this.getTodo(projectIndex, todoIndex);
+	let targetTodoBody = todoHTML.querySelector(`.${HTML_CONSTANTS.TODO_CONTENT_BODY}`);
+	let targetExpandButton = todoHTML.querySelector(`.${HTML_CONSTANTS.TODO_EXPAND_BUTTON}`);
+	let isTodoExpanded = targetTodoBody.classList.contains(HTML_CONSTANTS.TODO_CONTENT_BODY_EXPANDED);
+
+	if(isTodoExpanded) {
+	    targetTodoBody.classList.remove(HTML_CONSTANTS.TODO_CONTENT_BODY_EXPANDED);
+	    targetExpandButton.classList.remove(HTML_CONSTANTS.TODO_EXPAND_BUTTON_FLIPPED);
+	    return;
+	}
+
+	targetTodoBody.classList.add(HTML_CONSTANTS.TODO_CONTENT_BODY_EXPANDED);
+	targetExpandButton.classList.add(HTML_CONSTANTS.TODO_EXPAND_BUTTON_FLIPPED);
 }
 
 export default htmlManager;
