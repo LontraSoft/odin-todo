@@ -144,11 +144,15 @@ class ProjectManager {
     addChecklistItem(projectIndex, todoIndex, checklistItem) {
 	let targetTodo = this.#projects[projectIndex].getTodo(todoIndex);
 	targetTodo.addChecklistItem(checklistItem);
+	this.saveProjects();
+	return this;
     }
 
     removeChecklistItem(projectIndex, todoIndex, checklistItemIndex) {
 	let targetTodo = this.#projects[projectIndex].getTodo(todoIndex);
 	targetTodo.removeChecklistItem(checklistItemIndex);
+	this.saveProjects();
+	return this;
     }
 
     getProject(projectIndex) {
