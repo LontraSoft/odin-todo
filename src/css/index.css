@@ -106,7 +106,7 @@ header {
 
 #projects-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 25rem));
     gap: 20px;
     
     background-color: var(--background-color);
