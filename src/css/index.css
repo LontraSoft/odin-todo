@@ -52,6 +52,26 @@ h1, h2, h3, h4, h5, h6 {
 
 /*------------------------------------------------------------------------*/
 
+/*Fonts-------------------------------------------------------------------*/
+@font-face {
+    font-family: 'yantramanav_regularregular';
+    src: url('../fonts/yantramanav-regular-webfont.woff2') format('woff2'),
+         url('../fonts/yantramanav-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+
+@font-face {
+    font-family: 'noticia_textregular';
+    src: url('../fonts/noticiatext-regular-webfont.woff2') format('woff2'),
+         url('../fonts/noticiatext-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+/*------------------------------------------------------------------------*/
 
 :root {
     --background-color: hsl(282, 32%, 10%);
@@ -90,6 +110,15 @@ header {
     background-color: var(--project-color);
     border-bottom: 2px solid #0002;
     color: var(--dark-text-color);
+input, select, textarea {
+    font-family: 'yantramanav_regularregular', sans-serif;
+}
+
+.logo-text,
+.project-name,
+.todo-name {
+    font-family: 'noticia_textregular', serif;
+}
 
     height: var(--header-size);
 }
