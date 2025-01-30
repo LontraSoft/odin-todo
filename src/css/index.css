@@ -85,16 +85,18 @@ h1, h2, h3, h4, h5, h6 {
     --textbox-color: hsl(159, 17%, 92%);
     
     --add-button-color: hsl(99, 93%, 70%);
+    --add-button-hover-color: hsl(99, 93%, 45%);
     --remove-button-color: hsl(350, 77%, 40%);
+    --remove-button-hover-color: hsl(282, 52%, 78%);
     --checkbox-color: hsl(99, 20%, 90%);
     --checkbox-hover-color: hsl(99, 50%, 70%);
-    --checkbox-complete-color: hsl(99, 90%, 10%);
+    --checkbox-complete-color: hsl(99, 90%, 20%);
 
     --dark-text-color: var(--background-color);
     --light-text-color: var(--textbox-color);
 
     --todo-border-radius: 10px;
-    --header-size: 30px;
+    --header-size: 42px;
 }
 
 ul, ol {
@@ -104,12 +106,28 @@ ul, ol {
 }
 
 header {
-    display: flex;
-    justify-content: space-between;
-
-    background-color: var(--project-color);
+    display: grid;
+    grid-template:
+	'logo-box add-project-box .' var(--header-size) / 1fr min-content 1fr;
+    align-content: center;
+    background-color: var(--todo-color);
     border-bottom: 2px solid #0002;
     color: var(--dark-text-color);
+}
+
+.logo-container {
+    display: flex;
+    gap: 6px;
+    padding-left: 5px;
+}
+
+.logo-img {
+    display: inline;
+    margin: auto 0;
+    height: 32px;
+    width: 28px;
+}
+
 input, select, textarea {
     font-family: 'yantramanav_regularregular', sans-serif;
 }
@@ -120,17 +138,31 @@ input, select, textarea {
     font-family: 'noticia_textregular', serif;
 }
 
-    height: var(--header-size);
+.logo-text {
+    font-size: 24px;
 }
 
-.add-checklist-item-container,
 .input-container {
+    display: inline-flex;
+    margin: auto;
+}
+
+.add-checklist-item-container {
     display: flex;
-    align-content: center;
+    justify-self: center;
 }
 
 .logo-text {
     font-weight: bold;
+    align-self: center;
+}
+
+.input-container {
+    justify-content: center;
+}
+
+#add-project-input {
+    height: 1.2lh;
 }
 
 #projects-container {
@@ -225,7 +257,13 @@ input, select, textarea {
     border: 2px outset #0003;
     border-right: 2px solid #00000015;
     border-radius: 50% 0 0 50%;
- }
+}
+
+#add-project-button:hover,
+.add-todo-button:hover,
+.add-checklist-item-button:hover {
+    background-color: var(--add-button-hover-color);
+}
 
 #add-project-button {
     width: 28px;
@@ -481,6 +519,12 @@ input[type='checkbox']:checked {
     background-color: var(--todo-sidebar-color);
     border: 2px solid #0002;
     border-radius: 50%;
+}
+
+.project-remove-button:hover,
+.todo-remove-button:hover,
+.checklist-item-remove-button:hover {
+    background-color: var(--remove-button-hover-color);
 }
 
 .project-remove-button {
